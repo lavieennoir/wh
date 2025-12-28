@@ -69,6 +69,9 @@ export default function Unit({ dataSheet }: UnitProps) {
         <p className="font-bold">{dataSheet.keywords.join(', ')}</p>
       </UnitBaseBlock>
       <hr />
+      <p className="text-sm text-base-content/50 text-center py-2 mt-auto">
+        Updated on: {dataSheet.updatedAt}
+      </p>
     </div>
   );
 }
