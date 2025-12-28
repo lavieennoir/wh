@@ -1,4 +1,5 @@
 import Navigation from '@/src/components/Navigation';
+import { getTheme } from '@/src/lib/theme';
 import type { Metadata } from 'next';
 import Head from 'next/head';
 import './globals.css';
@@ -7,9 +8,11 @@ export const metadata: Metadata = {
   title: 'WH',
 };
 
-export default function RootLayout({ children }: Readonly<React.PropsWithChildren>) {
+export default async function RootLayout({ children }: Readonly<React.PropsWithChildren>) {
+  const theme = await getTheme();
+
   return (
-    <html lang="en">
+    <html lang="en" data-theme={theme ?? undefined}>
       <Head>
         <link rel="icon" href="/icon?<generated>" type="image/<generated>" sizes="<generated>" />
         <link

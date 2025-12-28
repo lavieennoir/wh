@@ -1,2 +1,39 @@
 @import 'tailwindcss';
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+  name: 'light';
+  default: true;
+  --color-primary: #263e71;
+  --color-secondary: #219ebc;
+}
+
+@plugin "daisyui/theme" {
+  name: 'dark';
+  default: false;
+  prefersdark: true;
+  color-scheme: 'dark';
+  --color-primary: #1d88a2;
+  --color-secondary: #8ecae6;
+}
+
+h1 {
+  @apply text-2xl font-bold;
+}
+
+h2 {
+  @apply text-xl font-bold;
+}
+
+h3 {
+  @apply text-lg font-bold;
+}
+
+@layer utilities {
+  .badge-base-content:not(.badge-dash):not(.badge-soft) {
+    color: var(--badge-bg);
+    background-color: var(--badge-fg);
+  }
+}
