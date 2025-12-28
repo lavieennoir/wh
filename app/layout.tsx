@@ -1,15 +1,12 @@
+'use client';
 import Navigation from '@/src/components/Navigation';
-import { getTheme } from '@/src/lib/theme';
-import type { Metadata } from 'next';
+import { useTheme } from '@/src/hooks/useTheme';
 import Head from 'next/head';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: 'WH',
-};
-
-export default async function RootLayout({ children }: Readonly<React.PropsWithChildren>) {
-  const theme = await getTheme();
+export default function RootLayout({ children }: Readonly<React.PropsWithChildren>) {
+  const [theme] = useTheme();
+  console.log('theme', theme);
 
   return (
     <html lang="en" data-theme={theme ?? undefined}>

@@ -1,16 +1,9 @@
 'use client';
 
-export interface ThemeControllerProps {
-  value: 'dark' | 'light' | null;
-  formAction: (value: FormData) => void;
-}
+import { useTheme } from '../hooks/useTheme';
 
-export default function ThemeController({ value, formAction }: ThemeControllerProps) {
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const data = new FormData();
-    data.append('theme', event.target.checked ? 'dark' : 'light');
-    formAction(data);
-  };
+export default function ThemeController() {
+  const [theme, onThemeChange] = useTheme();
 
   return (
     <label className="flex cursor-pointer gap-2">
@@ -30,9 +23,9 @@ export default function ThemeController({ value, formAction }: ThemeControllerPr
       </svg>
       <input
         type="checkbox"
-        checked={value === 'dark'}
+        checked={theme === 'dark'}
         className="toggle theme-controller"
-        onChange={handleChange}
+        onChange={() => onThemeChange(theme === 'dark' ? 'light' : 'dark')}
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"

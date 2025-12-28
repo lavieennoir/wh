@@ -2,6 +2,11 @@ import ListItemLink from '@/src/components/ListItemLink';
 import Navbar from '@/src/components/Navbar';
 import { Army } from '@/src/lib/army';
 import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'WH',
+};
 
 export default function Home() {
   const armies = Object.values(Army);
