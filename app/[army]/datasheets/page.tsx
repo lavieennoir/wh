@@ -14,7 +14,7 @@ export default async function DataSheetsPage(props: PageProps<'/[army]/datasheet
 
   return (
     <>
-      <Navbar title="Datasheets" />
+      <Navbar title="Datasheets" backButtonHref={`/${army}`} />
       <main className="p-2 pb-16">
         <ul className="list">
           {dataSheets.map((dataSheet) => (

@@ -1,3 +1,4 @@
+import InstallationPrompt from '@/src/components/InstallationPrompt';
 import ListItemLink from '@/src/components/ListItemLink';
 import Navbar from '@/src/components/Navbar';
 import Navigation from '@/src/components/Navigation';
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <>
       <Navbar title="Armies" hideBackButton />
+      <InstallationPrompt />
       <main className="p-2 pb-16">
         <ul className="list gap-2">
           {armies.map((army) => (

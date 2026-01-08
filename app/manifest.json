@@ -1,0 +1,46 @@
+{
+  "name": "WH",
+  "short_name": "WH",
+  "description": "WH app by lavieennoir",
+  "id": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ecf9ff",
+  "theme_color": "#1d232a",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home-screen-wide.png",
+      "sizes": "640x480",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Home Screen"
+    },
+    {
+      "src": "/screenshots/home-screen-narrow.png",
+      "sizes": "480x642",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Home Screen"
+    }
+  ]
+}

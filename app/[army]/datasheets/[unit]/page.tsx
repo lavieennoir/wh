@@ -17,7 +17,7 @@ export default async function UnitDataSheetPage(props: PageProps<'/[army]/datash
 
   return (
     <>
-      <Navbar title={unit.name} />
+      <Navbar title={unit.name} backButtonHref={`/${army}/datasheets`} />
       <main className="pb-16">
         <Unit dataSheet={unit} />
       </main>

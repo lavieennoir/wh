@@ -10,7 +10,7 @@ export default async function ArmyPage(props: PageProps<'/[army]'>) {
 
   return (
     <>
-      <Navbar title={capitalize(kebabCaseToTitleCase(army))} />
+      <Navbar title={capitalize(kebabCaseToTitleCase(army))} backButtonHref="/" />
       <main className="p-2 pb-16">
         <ul className="list gap-2">
           <li>
