@@ -15,7 +15,7 @@ export default function RootLayout({ children }: Readonly<React.PropsWithChildre
           sizes="<generated>"
         />
       </Head>
-      <body className="bg-base-100">{children}</body>
+      <body className="bg-base-100 max-w-5xl mx-auto">{children}</body>
     </html>
   );
 }

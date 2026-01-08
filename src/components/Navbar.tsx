@@ -14,7 +14,7 @@ export default function Navbar({ title, hideBackButton = false, backButtonHref }
   return (
     <nav className="navbar bg-base-100 shadow-sm gap-2">
       {!hideBackButton && (
-        <Link href={href || '/'} className="btn btn-circle btn-ghost">
+        <Link href={href || '/'} className="btn btn-circle btn-ghost" aria-label="Back">
           <ChevronLeftIcon className="size-4" />
         </Link>
       )}

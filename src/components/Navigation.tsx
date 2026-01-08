@@ -32,7 +32,7 @@ export interface NavigationProps {
 
 export default function Navigation({ activeTab }: NavigationProps) {
   return (
-    <footer className="dock dock-md">
+    <footer className="dock dock-md max-w-5xl mx-auto">
       {tabs.map((tab) => (
         <Link key={tab.key} href={tab.href} className={activeTab === tab.key ? 'dock-active' : ''}>
           <tab.icon className="size-4" />
