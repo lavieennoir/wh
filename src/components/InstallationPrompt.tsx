@@ -6,9 +6,10 @@ declare global {
     MSStream?: unknown;
   }
 }
+
 export default function InstallationPrompt() {
   const [isIOS, setIsIOS] = useState(false);
-  const [isStandalone, setIsStandalone] = useState(false);
+  const [isStandalone, setIsStandalone] = useState(true);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect

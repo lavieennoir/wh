@@ -27,7 +27,7 @@ export default function MeleeWeaponsContent({ weapons }: MeleeWeaponsContentProp
               </td>
             </tr>
             <tr>
-              <td className="p-2">Meele</td>
+              <td className="p-2">Melee</td>
               <td className="text-center p-2">{weapon.attacks}</td>
               <td className="text-center p-2">{weapon.weaponSkill}+</td>
               <td className="text-center p-2">{weapon.strength}</td>

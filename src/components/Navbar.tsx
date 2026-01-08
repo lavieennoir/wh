@@ -18,7 +18,7 @@ export default function Navbar({ title, hideBackButton = false, backButtonHref }
           <ChevronLeftIcon className="size-4" />
         </Link>
       )}
-      <h1 className={hideBackButton ? 'ml-12' : ''}>{title}</h1>
+      <h1 className={`truncate ${hideBackButton ? 'ml-12' : ''}`}>{title}</h1>
     </nav>
   );
 }

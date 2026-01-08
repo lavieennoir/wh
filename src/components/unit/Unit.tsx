@@ -1,3 +1,4 @@
+import pluralize from '@/src/lib/pluralize';
 import { DataSheet } from '@/src/schemas/data-sheet.schema';
 import AbilitiesBlocks from './AbilitiesBlocks';
 import MeleeWeaponsContent from './MeleeWeaponsContent';
@@ -6,6 +7,8 @@ import UnitBaseBlock from './UnitBaseBlock';
 import UnitCompositionBlock from './UnitCompositionBlock';
 import UnitInvulnerableBlock from './UnitInvulnerableBlock';
 import UnitStats from './UnitStats';
+import WargearAbilitiesContent from './WargearAbilitiesContent';
+import WargearOptionsContent from './WargearOptionsContent';
 
 export interface UnitProps {
   dataSheet: DataSheet;
@@ -44,6 +47,33 @@ export default function Unit({ dataSheet }: UnitProps) {
         abilities={dataSheet.abilities}
       />
       <hr />
+      {dataSheet.leader && (
+        <>
+          <UnitBaseBlock name="Leader">
+            <div className="flex flex-col gap-4">
+              <p>
+                This model can be attached to the following{' '}
+                {pluralize('unit', dataSheet.leader.attachableTo.length)}:
+              </p>
+              <ul className="font-bold">
+                {dataSheet.leader.attachableTo.map((unit) => (
+                  <li key={unit}>- {unit}</li>
+                ))}
+              </ul>
+              {dataSheet.leader.note && <p>{dataSheet.leader.note}</p>}
+            </div>
+          </UnitBaseBlock>
+          <hr />
+        </>
+      )}
+      {dataSheet.transport && (
+        <>
+          <UnitBaseBlock name="Transport">
+            <p>{dataSheet.transport.note}</p>
+          </UnitBaseBlock>
+          <hr />
+        </>
+      )}
       {dataSheet.supremeCommander && (
         <>
           <UnitBaseBlock name="Supreme Commander">
@@ -54,11 +84,29 @@ export default function Unit({ dataSheet }: UnitProps) {
       )}
       {dataSheet.degradation && (
         <>
-          <UnitBaseBlock name="Degradation">
+          <UnitBaseBlock
+            name={`Damaged: ${dataSheet.degradation.woundsRemaining} wounds remaining`}
+          >
             <p>
               While this model has {dataSheet.degradation.woundsRemaining} wounds remaining,{' '}
               {dataSheet.degradation.effect}
             </p>
+          </UnitBaseBlock>
+          <hr />
+        </>
+      )}
+      {dataSheet.wargearAbilities && (
+        <>
+          <UnitBaseBlock name="Wargear Abilities">
+            <WargearAbilitiesContent abilities={dataSheet.wargearAbilities} />
+          </UnitBaseBlock>
+          <hr />
+        </>
+      )}
+      {dataSheet.wargearOptions && (
+        <>
+          <UnitBaseBlock name="Wargear Options">
+            <WargearOptionsContent wargearOptions={dataSheet.wargearOptions} />
           </UnitBaseBlock>
           <hr />
         </>

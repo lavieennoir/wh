@@ -1,10 +1,11 @@
+import pluralize from '@/src/lib/pluralize';
+import { groupItems } from '@/src/lib/string.utils';
 import { UnitComposition } from '@/src/schemas/data-sheet.schema';
-import pluralize from 'pluralize';
 import UnitBaseBlock from './UnitBaseBlock';
 
 export interface UnitCompositionBlockProps {
   composition: UnitComposition;
-  baseSize: string;
+  baseSize?: string;
 }
 
 function getModelCount(minCount: number, maxCount: number) {
@@ -24,7 +25,10 @@ export default function UnitCompositionBlock({ composition, baseSize }: UnitComp
           ))}
         </ul>
         <p>
-          <strong>Every model is equipped with:</strong> {composition.equipment.join('; ')}
+          <strong>
+            {composition.models.length > 1 ? 'Every model' : 'This model'} is equipped with:
+          </strong>{' '}
+          {groupItems(composition.equipment).join('; ')}
         </p>
         <table className="w-full border-collapse">
           <thead>
@@ -57,7 +61,7 @@ export default function UnitCompositionBlock({ composition, baseSize }: UnitComp
           </tbody>
         </table>
         <p>
-          <strong>Base size:</strong> {baseSize}
+          <strong>Base size:</strong> {baseSize ?? 'Hull'}
         </p>
       </div>
     </UnitBaseBlock>

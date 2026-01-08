@@ -9,7 +9,7 @@ export interface ListItemLinkProps {
 export default function ListItemLink({ href, children }: ListItemLinkProps) {
   return (
     <Link href={href} className="btn btn-lg flex flex-row items-center justify-between">
-      <p>{children}</p>
+      <p className="truncate">{children}</p>
       <ChevronRightIcon className="size-4" />
     </Link>
   );

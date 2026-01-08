@@ -29,7 +29,9 @@ export default function RangedWeaponsContent({ weapons }: RangedWeaponsContentPr
             <tr>
               <td className="p-2">{weapon.range}&quot;</td>
               <td className="text-center p-2">{weapon.attacks}</td>
-              <td className="text-center p-2">{weapon.balllisticSkill}+</td>
+              <td className="text-center p-2">
+                {weapon.ballisticSkill ? `${weapon.ballisticSkill}+` : 'N/A'}
+              </td>
               <td className="text-center p-2">{weapon.strength}</td>
               <td className="text-center p-2">{weapon.armourPenetration}</td>
               <td className="text-center p-2">{weapon.damage}</td>

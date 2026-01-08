@@ -5,7 +5,7 @@ export interface UnitStatsProps {
 }
 
 const statValueClassName =
-  'bg-base-300 rounded-md h-10 w-10 mx-auto text-lg font-bold flex items-center justify-center';
+  'bg-base-content text-base-300 rounded-md h-10 w-10 mx-auto text-lg font-bold flex items-center justify-center';
 
 export default function UnitStats({ stats }: UnitStatsProps) {
   return (
