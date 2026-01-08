@@ -1,10 +1,7 @@
-'use client';
-
 import Cog6ToothIcon from '@/public/icons/6-cog-tooth.svg';
 import BarsBottomLeftIcon from '@/public/icons/bars-3-bottom-left.svg';
 import BookmarkSquareIcon from '@/public/icons/bookmark-square.svg';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 const tabs = [
   {
@@ -29,17 +26,11 @@ const tabs = [
 
 type NavigationTabKey = (typeof tabs)[number]['key'];
 
-export default function Navigation() {
-  const pathname = usePathname();
-  const isRoasterPage = pathname.startsWith('/rosters');
-  const isSettingsPage = pathname.startsWith('/settings');
+export interface NavigationProps {
+  activeTab: NavigationTabKey;
+}
 
-  const activeTab: NavigationTabKey = isRoasterPage
-    ? 'rosters'
-    : isSettingsPage
-    ? 'settings'
-    : 'references';
-
+export default function Navigation({ activeTab }: NavigationProps) {
   return (
     <footer className="dock dock-md">
       {tabs.map((tab) => (

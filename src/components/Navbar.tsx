@@ -1,7 +1,5 @@
-'use client';
 import ChevronLeftIcon from '@/public/icons/chevron-left.svg';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 export interface NavbarProps {
   title: string;
@@ -10,9 +8,8 @@ export interface NavbarProps {
 }
 
 export default function Navbar({ title, hideBackButton = false, backButtonHref }: NavbarProps) {
-  const pathname = usePathname();
-  // remove the last part of the pathname by default to move up one level
-  const href = backButtonHref ?? pathname.split('/').slice(0, -1).join('/');
+  // Relative href to move up one level by default
+  const href = backButtonHref ?? '..';
 
   return (
     <nav className="navbar bg-base-100 shadow-sm gap-2">

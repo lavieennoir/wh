@@ -1,5 +1,6 @@
 import ListItemLink from '@/src/components/ListItemLink';
 import Navbar from '@/src/components/Navbar';
+import Navigation from '@/src/components/Navigation';
 import { Army } from '@/src/lib/army';
 import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { Metadata } from 'next';
@@ -52,6 +53,7 @@ export default function Home() {
           </li>
         </ul>
       </main>
+      <Navigation activeTab="references" />
     </>
   );
 }

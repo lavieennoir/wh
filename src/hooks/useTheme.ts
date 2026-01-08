@@ -1,26 +1,21 @@
 import { useEffect, useState } from 'react';
-
-function parseThemeValue(value: string | null) {
-  return value === 'dark' ? 'dark' : value === 'light' ? 'light' : null;
-}
+import * as ThemeLoader from '../components/ThemeLoader';
 
 export const useTheme = () => {
   const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- set theme on mount
-    setTheme(parseThemeValue(localStorage.getItem('theme')));
+    setTheme(ThemeLoader.getTheme());
   }, []);
 
   const onThemeChange = (newTheme: 'light' | 'dark' | null) => {
     setTheme(newTheme);
     if (newTheme) {
-      localStorage.setItem('theme', newTheme);
+      ThemeLoader.setTheme(newTheme);
     } else {
-      localStorage.removeItem('theme');
+      ThemeLoader.clearTheme();
     }
-    // Reload the page so layout can pick up the new theme from storage
-    window.location.reload();
   };
 
   return [theme, onThemeChange] as const;

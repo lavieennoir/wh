@@ -1,9 +1,20 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { useTheme } from '../hooks/useTheme';
 
 export default function ThemeController() {
   const [theme, onThemeChange] = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <label className="flex cursor-pointer gap-2">

@@ -1,15 +1,11 @@
-'use client';
-import Navigation from '@/src/components/Navigation';
-import { useTheme } from '@/src/hooks/useTheme';
+import ThemeLoader from '@/src/components/ThemeLoader';
 import Head from 'next/head';
 import './globals.css';
 
 export default function RootLayout({ children }: Readonly<React.PropsWithChildren>) {
-  const [theme] = useTheme();
-  console.log('theme', theme);
-
   return (
-    <html lang="en" data-theme={theme ?? undefined}>
+    <html lang="en">
+      <ThemeLoader />
       <Head>
         <link rel="icon" href="/icon?<generated>" type="image/<generated>" sizes="<generated>" />
         <link
@@ -19,10 +15,7 @@ export default function RootLayout({ children }: Readonly<React.PropsWithChildre
           sizes="<generated>"
         />
       </Head>
-      <body className="bg-base-100">
-        {children}
-        <Navigation />
-      </body>
+      <body className="bg-base-100">{children}</body>
     </html>
   );
 }
