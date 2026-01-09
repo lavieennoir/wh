@@ -12,7 +12,7 @@ export default async function ArmyRulesPage(props: PageProps<'/[army]/army-rules
   const rules = armyRules[armyEnum];
   return (
     <>
-      <Navbar title="Datasheets" backButtonHref={`/${army}`} />
+      <Navbar title="Army Rules" backButtonHref={`/${army}`} />
       <main className="p-2 pb-16 flex flex-col gap-4">
         {rules.map((rule) => (
           <AbilitiesBlock

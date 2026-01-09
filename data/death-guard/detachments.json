@@ -102,5 +102,649 @@
         }
       }
     ]
+  },
+  {
+    "slug": "mortarions-hammer",
+    "name": "Mortarion's Hammer",
+    "rules": [
+      {
+        "name": "Misamic Bombardment",
+        "description": "At the start of the battle round, select a number of enemy units more than 12\" away from every model from your army that is on the battlefield. Until the end of the battle round, those enemy units are Afflicted. The maximum number of units you can select in this way depends on the battle size, as shown below.\n\n| Battle Size | Units |\n|---|---|\n| Incursion | 1 |\n| Strike Force | 2 |\n| Onslaught | 3 |"
+      }
+    ],
+    "enchantments": [
+      {
+        "name": "Eye of Affliction",
+        "cost": 20,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. Ranged weapons equipped by models in the bearer's unit have the **[Ignores Cover]** ability while targeting an Afflicted enemy unit."
+      },
+      {
+        "name": "Bilemaw Blight",
+        "cost": 10,
+        "requiredKeywords": ["Malignant Plaguecaster"],
+        "description": "**Malignant Plaguecaster** only. At the start of your Shooting phase, until the end of the phase, add 12\" to the Range characteristics of the bearer's Plague Wind weapon."
+      },
+      {
+        "name": "Shriekworm Familiar",
+        "cost": 15,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. Once per battle round, you can target the bearer's unit with the Fire Overwatch Stratagem for 0CP."
+      },
+      {
+        "name": "Tendrilous Emissions",
+        "cost": 30,
+        "requiredKeywords": ["Lord of Virulence"],
+        "description": "**Lord of Virulence** only. While the bearer is within 3\" of one or more friendly **Death Guard Vehicle** units, the bearer has the Lone Operative ability, and each time one of those **Vehicle** units makes a ranged attack that targets an enemy unit visible to the bearer, re-roll a Wound roll of 1."
+      }
+    ],
+    "stratagems": [
+      {
+        "name": "Blighted Land",
+        "cost": 2,
+        "phase": ["Movement"],
+        "turn": "Your",
+        "content": {
+          "when": "End of your Movement phase.",
+          "target": "One **Death Guard Vehicle** unit from your army.",
+          "effect": "Select one terrain feature within 24\" of and visible to your unit. Until the start of your next turn, enemy units are Afflicted while they are within 3\" of that terrain feature."
+        }
+      },
+      {
+        "name": "Relentless Grind",
+        "cost": 1,
+        "phase": ["Movement", "Charge"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Movement phase or your Charge phase.",
+          "target": "One **Death Guard Vehicle** unit from your army that has not been selected to move or charge this phase.",
+          "effect": "Until the end of the phase, each time your unit makes a Normal, Advance or Charge move, it can move horizontally through terrain features."
+        }
+      },
+      {
+        "name": "Drawn to Despair",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Death Guard** unit from your army that has not been selected to shoot this phase.",
+          "effect": "Until the end of the phase, each time a model in your unit makes an attack that targets a visible enemy unit (excluding **Aircraft**) within your opponent's deployment zone, you can re-roll the Hit roll."
+        }
+      },
+      {
+        "name": "Font of Filth",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Death Guard Vehicle** unit from your army that has not been selected to shoot this phase.",
+          "effect": "Until the end of the phase, ranged weapons equipped by models in your unit have the **[Assault]** ability."
+        }
+      },
+      {
+        "name": "Eyestinger Storm",
+        "cost": 1,
+        "phase": ["Command"],
+        "turn": "Opponent",
+        "content": {
+          "when": "Your opponent's Command phase.",
+          "target": "One **Death Guard Vehicle** unit from your army.",
+          "effect": "Select one objective marker visible to one or more models in your unit. Each Afflicted enemy unit within range of that objective marker must take a Battle-shock test. Enemy units affected by this Stratagem do not need to take any other Battle-shock tests in the same phase."
+        }
+      },
+      {
+        "name": "Stinking Mire",
+        "cost": 1,
+        "phase": ["Charge"],
+        "turn": "Opponent",
+        "content": {
+          "when": "Start of your opponent's Charge phase.",
+          "target": "One **Death Guard Vehicle** unit from your army.",
+          "effect": "Until the end of the phase, each time an enemy unit selects your unit as the target of a charge, subtract 2 from the Charge roll (this is not cumulative with any other negative modifiers to that Charge roll)."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "champions-of-contagion",
+    "name": "Champions of Contagion",
+    "rules": [
+      {
+        "name": "Mainfold Maladies",
+        "description": "At the start of the battle round, you can select one of the Plagues listed in Nurgle's Gift. Until the end of the battle, that is your chosen Plague instead of any previously chosen Plague."
+      }
+    ],
+    "enchantments": [
+      {
+        "name": "Final Ingredient",
+        "cost": 20,
+        "requiredKeywords": ["Biologus Putrifier"],
+        "description": "**Biologus Putrifier** only. Once per battle, after the bearer's unit has fought, if one or more **Character** models were destroyed as a result of those attacks, select one Plague. Until the end of the battle, while an enemy unit is Afflicted, that unit has the effect of the selected Plague in addition to any other."
+      },
+      {
+        "name": "Visions of Virulence",
+        "cost": 15,
+        "requiredKeywords": ["Malignant Plaguecaster"],
+        "description": "**Malignant Plaguecaster** only. While an enemy unit is enfeebled by the bearer's Pestilent Fallout ability, that unit is also Afflicted."
+      },
+      {
+        "name": "Needle of Nurgle",
+        "cost": 25,
+        "requiredKeywords": ["Plague Surgeon"],
+        "description": "**Plague Surgeon** only. Each time the bearer uses its Tainted Narthecium ability, you can return up to D3 destroyed models to the bearer's unit (instead of 1)."
+      },
+      {
+        "name": "Cornucophagus",
+        "cost": 35,
+        "requiredKeywords": ["Lord of Poxes"],
+        "description": "**Lord of Poxes** only. In the Declare Battle Formations step select one Plague. Until the end of the battle, while an enemy unit is within Contagion Range of the bearer, that enemy unit has the effect of that Plague in addition to any other."
+      }
+    ],
+    "stratagems": [
+      {
+        "name": "Blessings of Filth",
+        "cost": 1,
+        "phase": ["Shooting", "Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Your Shooting phase or the Fight phase.",
+          "target": "One **Death Guard** Attached unit from your army that has not been selected to shoot or fight this phase.",
+          "effect": "Until the end of the phase, each time a model in your unit makes an attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+        }
+      },
+      {
+        "name": "Malignance Magnified",
+        "cost": 2,
+        "phase": ["Shooting", "Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Your Shooting phase or the Fight phase.",
+          "target": "One **Death Guard** Attached unit from your army that has not been selected to shoot or fight this phase.",
+          "effect": "Until the end of the phase, each time a model in your unit makes an attack that targets a unit that is below its Starting Strength, you can re-roll the Hit roll and you can re-roll the Wound roll."
+        }
+      },
+      {
+        "name": "Grotesque Fortitude",
+        "cost": 1,
+        "phase": ["Shooting", "Fight"],
+        "turn": "Opponent",
+        "content": {
+          "when": "Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+          "target": "One **Death Guard** Attached unit from your army that was selected as the target of one or more of the attacking unit's attacks.",
+          "effect": "Until the end of the phase, add 2 to the Toughness characteristic of models in your unit."
+        }
+      },
+      {
+        "name": "Rabid Infusion",
+        "cost": 1,
+        "phase": ["Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Start of the Fight phase.",
+          "target": "One **Death Guard** unit from your army that includes two **Character** models.",
+          "effect": "Until the end of the phase, your unit has the Fights First ability."
+        }
+      },
+      {
+        "name": "Mobile Vector",
+        "cost": 1,
+        "phase": ["Movement"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Movement phase, before the Reinforcements step.",
+          "target": "One **Death Guard Character** unit from your army that is not leading a unit.",
+          "effect": "Select one other friendly **Death Guard** unit (excluding Battle-shocked units and Attached units that already have two Leader units or one of your **Character** units leading it) within 2\" horizontally and 5\" vertically of your unit that your unit can lead (as described in the Leader section of its datasheet). Your unit attaches to that unit as a Leader. Change that unit's Starting Strength accordingly."
+        }
+      },
+      {
+        "name": "Death's Heads",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Biologus Putrifier** unit from your army that is not within Engagement Range of one or more enemy units and has not been selected to shoot this phase.",
+          "effect": "Select one enemy unit (excluding **Vehicles**) that is within 8\" of and visible to your unit. Until the start of your next turn, that unit has the effect of all Plagues (see Nurgle's Gift)."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "tallyband-summoners",
+    "name": "Tallyband Summoners",
+    "changes": [
+      {
+        "type": "allow-extra-faction-keywords",
+        "faction": ["Plague Legions"],
+        "allowExtraFactionWarlord": false,
+        "limits": {
+          "incursion": 500,
+          "strikeForce": 1000,
+          "onslaught": 1500
+        }
+      }
+    ],
+    "rules": [
+      {
+        "name": "Reverberant Rancidity",
+        "description": "While a **Plague Legions** unit from your army is within 7\" of one or more **Death Guard** units from your army, that **Plague Legions** unit has the Nurgle's Gift ability.\n\nWhile a **Death Guard** unit from your army is within 7\" of one or more **Plague Legions** units from your army, add 3\" to that **Death Guard** unit's Contagion Range."
+      }
+    ],
+    "enchantments": [
+      {
+        "name": "Beckoning Blight",
+        "cost": 20,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. Each time a **Plague Legions** unit from your army is set up on the battlefield using the Deep Strike ability, if it is set up wholly within 12\" of the bearer, it can be set up anywhere that is more than 6\" horizontally away from all enemy models, instead of more than 9\"."
+      },
+      {
+        "name": "Fell Harvester",
+        "cost": 10,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. Add 2 to the Attacks characteristic of the bearer's melee weapons."
+      },
+      {
+        "name": "Entropic Knell",
+        "cost": 15,
+        "requiredKeywords": ["Great Unclean One"],
+        "description": "**Great Unclean One** only. In the Battle-shock step of your opponent's Command phase, each enemy unit within 6\" of the bearer that is below its Starting Strength must take a Battle-shock test, subtracting 1 from that test."
+      },
+      {
+        "name": "Tome of Bounteous Blessings",
+        "cost": 20,
+        "requiredKeywords": ["Malignant Plaguecaster"],
+        "description": "**Malignant Plaguecaster** only. Each time a **Plague Legions** unit within 12\" of the bearer takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a **Battleline** unit and that test is passed, up to D3 destroyed models can be returned to that unit instead)."
+      }
+    ],
+    "stratagems": [
+      {
+        "name": "Persistent Pests",
+        "cost": 1,
+        "phase": "Any",
+        "turn": "Any",
+        "content": {
+          "when": "Any phase.",
+          "target": "One **Nurglings** unit from your army that was just destroyed. You can target that unit with this Stratagem even though it was just destroyed.",
+          "effect": "Add a new unit to your army identical to your destroyed unit, in Strategic Reserves, at its Starting Strength and with its full wounds remaining.",
+          "restrictions": "You can only use this Stratagem once per battle."
+        }
+      },
+      {
+        "name": "Clutching Corruption",
+        "cost": 1,
+        "phase": ["Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Fight phase.",
+          "target": "One **Death Guard** unit from your army that has not been selected to fight this phase.",
+          "effect": "Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit that is within Engagement Range of one or more **Plague Legions** units from your army, you can re-roll the Hit roll."
+        }
+      },
+      {
+        "name": "All is Rot",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Plague Legions** unit from your army that is within Engagement Range of one or more enemy units.",
+          "effect": "Until the end of the phase, enemy units are not considered to be within Engagement Range of your unit for the purposes of selecting targets of ranged weapons. Until the end of the phase, each time an enemy model loses a wound, while that model's unit is within Engagement Range of your unit, roll one D6: on a 5+, your unit suffers 1 mortal wound after the attacking unit has finished making its attacks."
+        }
+      },
+      {
+        "name": "Fleshy Avalanche",
+        "cost": 1,
+        "phase": ["Movement", "Charge"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Movement phase or your Charge phase.",
+          "target": "One **Plague Legions Monster** unit from your army that has not been selected to move or charge this phase.",
+          "effect": "Until the end of the phase, each time your unit makes a Normal, Advance or Charge move, it can move horizontally through terrain features."
+        }
+      },
+      {
+        "name": "Avatars of Decay",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Plague Legions** unit from your army.",
+          "effect": "Until the end of the phase, while an enemy unit is within 6\" of your unit, that enemy unit is Afflicted."
+        }
+      },
+      {
+        "name": "Mireslick",
+        "cost": 1,
+        "phase": ["Movement"],
+        "turn": "Opponent",
+        "content": {
+          "when": "Your opponent's Movement phase, when an enemy unit (excluding **Monsters** and **Vehicles**) is selected to Fall Back.",
+          "target": "One **Plague Legions** unit from your army that is within Engagement Range of that enemy unit.",
+          "effect": "Until the end of the phase, while an enemy unit is within Engagement Range of your unit, each time that unit is selected to Fall Back, it must take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "shamblerot-vectorium",
+    "name": "Shamblerot Vectorium",
+    "changes": [
+      {
+        "type": "gain-keyword",
+        "target": ["Poxwalkers"],
+        "keywords": ["Battleline"]
+      }
+    ],
+    "rules": [
+      {
+        "name": "Numberless Horde",
+        "description": "In your Command phase in each of the following battle rounds, depending on your chosen battle size, add a new **Poxwalkers** unit with a Starting Strength of 10 to your army, in Strategic Reserves.\n\n| Battle Size | Battle Rounds |\n|---|---|\n| Incursion | 2,3 |\n| Strike Force | 2,3,4 |\n| Onslaught | 2,3,4,5 |"
+      }
+    ],
+    "enchantments": [
+      {
+        "name": "Witherbone Pipes",
+        "cost": 25,
+        "requiredKeywords": ["Noxious Blightbringer"],
+        "description": "**Noxious Blightbringer** only. While the bearer is leading a **Poxwalkers** unit, add 1 to the Objective Control characteristic of models in that unit, and each time that unit takes a Battle-shock or Leadership test, add 1 to that test."
+      },
+      {
+        "name": "Lord of the Walking Pox",
+        "cost": 15,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. If the bearer is leading a **Poxwalker** unit, and is in Strategic Reserves, for the purposes of setting up that unit on the battlefield, treat the current battle round as the third battle round."
+      },
+      {
+        "name": "Sorrowsyphon",
+        "cost": 10,
+        "requiredKeywords": ["Malignant Plaguecaster"],
+        "description": "**Malignant Plaguecaster** only. While the bearer is leading a **Poxwalkers** unit, add 1 to the Damage characteristic of the bearer's Plague Wind weapon. Each time the bearer makes one or more attacks with a Plague Wind weapon, after the bearer's unit has resolved its attacks, D3 Bodyguard models from the bearer's unit are destroyed."
+      },
+      {
+        "name": "Talisman of Burgeoning",
+        "cost": 25,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. While the bearer is leading a unit, add 1 to the Toughness characteristic of **Poxwalkers** models in that unit."
+      }
+    ],
+    "stratagems": [
+      {
+        "name": "Grip of the Walking Pox",
+        "cost": 1,
+        "phase": ["Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Fight phase, just after an enemy unit has selected its targets.",
+          "target": "One **Poxwalkers** unit from your army that was selected as the target of one or more of the attacking unit's attacks.",
+          "effect": "After the attacking unit has fought, roll one D6 for each model from your unit that was destroyed as a result of those attacks: on a 6, the attacking unit suffers 1 mortal wound. If your unit is not destroyed after the attacking unit has fought, enemy models destroyed as a result of this Stratagem count as enemy models destroyed by an attack made by a model in your unit for the purposes of the Curse of the Walking Pox ability."
+        }
+      },
+      {
+        "name": "Smeared with Filth",
+        "cost": 1,
+        "phase": ["Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Fight phase.",
+          "target": "One **Poxwalkers** unit from your army that was just destroyed. You can target that unit with this Stratagem even though it was just destroyed.",
+          "effect": "Select one enemy unit that made one or more attacks that targeted your unit this phase. Until the end of the battle, that enemy unit is Afflicted."
+        }
+      },
+      {
+        "name": "Gnawing Hunger",
+        "cost": 1,
+        "phase": ["Command"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Command phase.",
+          "target": "One **Poxwalkers** unit from your army.",
+          "effect": "Until the end of the turn, add 1 to the Move characteristic of models in your unit, and add 1 to the Attacks and Strength characteristics of melee weapons equipped by models in your unit."
+        }
+      },
+      {
+        "name": "Hidden Amongst the Dead",
+        "cost": 1,
+        "phase": ["Movement"],
+        "turn": "Your",
+        "content": {
+          "when": "The Reinforcements step of your Movement phase.",
+          "target": "One **Poxwalkers** unit from your army that is in Strategic Reserves and that is not an Attached unit.",
+          "effect": "Until the end of the phase, models in that unit have the Deep Strike ability."
+        }
+      },
+      {
+        "name": "Shock and Horror",
+        "cost": 1,
+        "phase": ["Charge"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Charge phase, just after a **Death Guard** unit from your army ends a Charge move.",
+          "target": "That **Death Guard** unit.",
+          "effect": "Each enemy unit within Engagement Range of your unit must take a Battle-shock test, subtracting 1 from that test."
+        }
+      },
+      {
+        "name": "Shambling Wall",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Opponent",
+        "content": {
+          "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+          "target": "One **Death Guard** unit from your army that was selected as the target of one or more of the attacking unit's attacks, and one friendly **Poxwalkers** unit within 3\" of your unit and visible to both your unit and the attacking unit.",
+          "effect": "Until the end of the phase, each time you would allocate an attack to a model in your **Death Guard** unit, if your **Poxwalkers** unit is visible to the attacking model and is an eligible target for that attack, no saving throw is made for that attack; instead a number of **Poxwalkers** from your **Poxwalkers** unit equal to the Damage characteristic of that attack are destroyed."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "death-lords-chosen",
+    "name": "Death Lord's Chosen",
+    "rules": [
+      {
+        "name": "Deadly Vectors",
+        "description": "In your opponent's Command phase, roll 2D6 for each Afflicted enemy unit, subtract 1 from the result if that unit is Below Half-strength. If the result is 6 or less, that enemy unit suffers D3 mortal wounds."
+      }
+    ],
+    "enchantments": [
+      {
+        "name": "Face of Death",
+        "cost": 10,
+        "requiredKeywords": ["Terminator"],
+        "description": "**Terminator** model only. At the start of the Fight phase, each enemy unit within Engagement Range of the bearer's unit must take a Battle-shock test."
+      },
+      {
+        "name": "Vile Vigour",
+        "cost": 15,
+        "requiredKeywords": ["Terminator"],
+        "description": "**Terminator** model only. While the bearer is leading a unit, add 1\" to the Movement characteristic of models in that unit and you can re-roll Advance rolls made for that unit."
+      },
+      {
+        "name": "Warprot Talisman",
+        "cost": 30,
+        "requiredKeywords": ["Terminator"],
+        "description": "**Terminator** model only. Once per battle, at the end of your opponent's turn, if the bearer's unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
+      },
+      {
+        "name": "Helm of the Fly King",
+        "cost": 20,
+        "requiredKeywords": ["Terminator"],
+        "description": "**Terminator** model only. While the bearer is leading a unit, models in that unit cannot be targeted by ranged attacks unless the attacking model is within 18\"."
+      }
+    ],
+    "stratagems": [
+      {
+        "name": "Blooming Pestilence",
+        "cost": 1,
+        "phase": "Any",
+        "turn": "Any",
+        "content": {
+          "when": "Start of any phase.",
+          "target": "One **Terminator** unit from your army.",
+          "effect": "Until the end of the phase, add 3\" to the Contagion Range of models in your unit."
+        }
+      },
+      {
+        "name": "Grim Reapers",
+        "cost": 1,
+        "phase": ["Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Fight phase.",
+          "target": "One **Terminator** unit from your army that has not been selected to fight this phase.",
+          "effect": "Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit (excluding **Monsters** and **Vehicles**) you can re-roll the Hit roll."
+        }
+      },
+      {
+        "name": "Undying Spite",
+        "cost": 1,
+        "phase": ["Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Fight phase, just after an enemy unit has selected its targets.",
+          "target": "One **Terminator** unit from your army that was selected as the target of one or more of the attacking unit's attacks.",
+          "effect": "Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6. On a 4+, do not remove the destroyed model from play; it can fight after the attacking unit has finished making its attacks, and is then removed from play."
+        }
+      },
+      {
+        "name": "Signal Pox",
+        "cost": 1,
+        "phase": ["Command"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Command phase.",
+          "target": "One **Lord of Virulence** model from your army.",
+          "effect": "Select one objective marker within 30\" of and visible to your model. Until the start of your next turn, while an enemy unit is within range of that objective marker, that unit is Afflicted."
+        }
+      },
+      {
+        "name": "Mortarion's Teachings",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Terminator** unit from your army that has not been selected to shoot this phase.",
+          "effect": "Until the end of the phase, ranged weapons equipped by models in your unit have the **[Assault]** and **[Heavy]** abilities."
+        }
+      },
+      {
+        "name": "Sickening Impact",
+        "cost": 1,
+        "phase": ["Charge"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Charge phase, just after a **Terminator** unit from your army ends a Charge move.",
+          "target": "That **Terminator** unit.",
+          "effect": "Select one enemy unit within Engagement Range of your unit, then roll one D6 for each model in your unit that is within Engagement Range of that enemy unit: for each 2+, that enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "flyblown-host",
+    "name": "Flyblown Host",
+    "rules": [
+      {
+        "name": "Verminous Haze",
+        "description": "**Death Guard Infantry** units (excluding **Poxwalkers** units) from your army that are not embarked within a **Transport** have the Scouts 5\" and Stealth abilities."
+      }
+    ],
+    "enchantments": [
+      {
+        "name": "Droning Chorus",
+        "cost": 15,
+        "requiredKeywords": ["Death Guard", "Infantry"],
+        "description": "**Death Guard Infantry** model only. Ranged weapons equipped by models in the bearer's unit have the **[Assault]** ability."
+      },
+      {
+        "name": "Insectile Murmuration",
+        "cost": 20,
+        "requiredKeywords": ["Death Guard", "Infantry"],
+        "description": "**Death Guard Infantry** model only. Each time a model in the bearer's unit makes an attack that targets a unit that is within Contagion Range of one or more **Death Guard** units from your army, re-roll a Wound roll of 1."
+      },
+      {
+        "name": "Rejuvenating Swarm",
+        "cost": 10,
+        "requiredKeywords": ["Death Guard", "Infantry"],
+        "description": "**Death Guard Infantry** model only. At the end of each phase, the bearer regains all of its lost wounds."
+      },
+      {
+        "name": "Plagueveil",
+        "cost": 25,
+        "requiredKeywords": ["Death Guard", "Infantry"],
+        "description": "**Death Guard Infantry** model only. While the bearer's unit is within range of one or more objective markers that you control, that unit can only be selected as the target of a ranged attack if the attacking model is within 18\"."
+      }
+    ],
+    "stratagems": [
+      {
+        "name": "Nauseating Paroxysms",
+        "cost": 1,
+        "phase": ["Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Start of the Fight phase.",
+          "target": "One **Death Guard Infantry** unit from your army that is within Engagement Range of one or more enemy units.",
+          "effect": "Select one enemy unit within Engagement Range of your unit. That unit must take a Battle-shock test, subtracting 1 from the result."
+        }
+      },
+      {
+        "name": "Vermin Cloud",
+        "cost": 1,
+        "phase": ["Fight"],
+        "turn": "Any",
+        "content": {
+          "when": "Fight phase.",
+          "target": "One **Death Guard Infantry** unit from your army that has not been selected to fight this phase.",
+          "effect": "Until the end of the phase, each time a model in this unit makes a Pile-in or Consolidation move, it can move up to 6\" instead of up to 3\"."
+        }
+      },
+      {
+        "name": "Eye of the Swarm",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Death Guard Infantry** unit from your army that has not been selected to shoot this phase.",
+          "effect": "Until the end of the phase, ranged weapons equipped by models in your unit (excluding Blast weapons) have the **[Pistol]** ability."
+        }
+      },
+      {
+        "name": "Droning Horror",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Death Guard Infantry** unit from your army that has not been selected to shoot this phase.",
+          "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack, re-roll a Hit roll of 1. If that attack targets a unit within half range, you can re-roll the Hit roll instead."
+        }
+      },
+      {
+        "name": "Enervating Onslaught",
+        "cost": 1,
+        "phase": ["Charge"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Charge phase, just after a **Death Guard Infantry** unit from your army makes a Charge move.",
+          "target": "That **Death Guard Infantry** unit.",
+          "effect": "Select one enemy unit within Engagement Range of your unit (excluding **Monsters** and **Vehicles**). Roll one D6 for each model in your unit that is within Engagement Range of that unit, adding 1 to the result if that model is not a **Cultist** or **Poxwalker** model: for each 5+, the selected enemy unit suffers 1 mortal wound (to a maximum of 6 mortal wounds)."
+        }
+      },
+      {
+        "name": "Myphitic Invigoration",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Opponent",
+        "content": {
+          "when": "Your opponent's Shooting phase, just after an enemy unit has selected its targets.",
+          "target": "One **Death Guard Infantry** unit from your army that is within 6\" of one or more friendly **Myphitic Blight-hauler** units and that was selected as the target of one or more of the attacking unit's attacks.",
+          "effect": "Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of this unit, subtract 1 from the Wound roll."
+        }
+      }
+    ]
   }
 ]

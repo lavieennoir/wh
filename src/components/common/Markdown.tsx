@@ -18,6 +18,17 @@ const components: Components = {
       <strong {...props} className={['uppercase', props.className].filter(Boolean).join(' ')} />
     );
   },
+  ul: ({ node, ...props }) => {
+    return (
+      <ul
+        {...props}
+        className={['list-disc list-inside', props.className].filter(Boolean).join(' ')}
+      />
+    );
+  },
+  table: ({ node, ...props }) => {
+    return <table {...props} className={['table', props.className].filter(Boolean).join(' ')} />;
+  },
 };
 
 export default function Markdown({

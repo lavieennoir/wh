@@ -14,7 +14,7 @@ export default function EnchantmentBlock({
     <details
       className="collapse collapse-arrow border border-primary"
       name={name}
-      open={expandAllUnitsByDefault ?? true}
+      open={expandAllUnitsByDefault}
     >
       <summary className="collapse-title bg-primary text-neutral-content py-2">
         <h2 className="flex justify-between">
@@ -22,7 +22,7 @@ export default function EnchantmentBlock({
           <span>{cost} Points</span>
         </h2>
       </summary>
-      <div className="collapse-content py-2 px-4">
+      <div className="collapse-content py-2 px-0 *:px-4 [&>table]:px-0">
         <Markdown>{description}</Markdown>
       </div>
     </details>

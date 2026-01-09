@@ -22,10 +22,10 @@ export default function AbilitiesBlock({ name, description, abilities }: Abiliti
       <summary className="collapse-title bg-primary text-neutral-content py-2">
         <h2 className="truncate">{name}</h2>
       </summary>
-      <div className="collapse-content py-2 px-4">
+      <div className="collapse-content flex flex-col gap-4 py-2 px-0 *:px-4 [&>table]:px-0">
         <Markdown>{description}</Markdown>
         {abilities && (
-          <div className="flex flex-col gap-4 pt-4">
+          <div className="flex flex-col gap-4">
             {abilities.map((ability) => (
               <Fragment key={ability.name}>
                 <h2>{ability.name}</h2>

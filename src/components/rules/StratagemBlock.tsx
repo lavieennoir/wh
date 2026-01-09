@@ -33,7 +33,7 @@ export default function StratagemBlock({
     <details
       className={`collapse collapse-arrow border ${turnToBorderColor[turn]}`}
       name={name}
-      open={expandAllUnitsByDefault ?? true}
+      open={expandAllUnitsByDefault}
     >
       <summary className={`collapse-title ${turnToBgColor[turn]} py-2`}>
         <h2 className="flex justify-between">
@@ -43,10 +43,11 @@ export default function StratagemBlock({
       </summary>
       <div
         className={[
-          'collapse-content py-2 px-4 flex flex-col gap-2',
+          'collapse-content py-2 px-0 *:px-4 [&>table]:px-0 flex flex-col gap-2',
           "[&>*:first-child]:before:content-['When:']",
           "[&>*:nth-child(2)]:before:content-['Target:']",
-          "[&>*:last-child]:before:content-['Effect:']",
+          "[&>*:nth-child(3)]:before:content-['Effect:']",
+          "[&>*:nth-child(4)]:before:content-['Restrictions:']",
           '*:before:inline *:before:pr-0.5 *:before:font-bold',
           turnToBeforeColor[turn],
         ].join(' ')}
@@ -54,6 +55,7 @@ export default function StratagemBlock({
         <Markdown>{content.when}</Markdown>
         <Markdown>{content.target}</Markdown>
         <Markdown>{content.effect}</Markdown>
+        {content.restrictions && <Markdown>{content.restrictions}</Markdown>}
       </div>
     </details>
   );

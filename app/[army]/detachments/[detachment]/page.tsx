@@ -1,8 +1,8 @@
 import ListItemLink from '@/src/components/common/ListItemLink';
-import Markdown from '@/src/components/common/Markdown';
 import Navbar from '@/src/components/layout/Navbar';
 import AbilitiesBlock from '@/src/components/rules/AbilitiesBlock';
-import { Army } from '@/src/lib/army';
+import DetachmentChangesBlock from '@/src/components/rules/DetachmentChangesBlock';
+import { Army, defaultArmyFactions } from '@/src/lib/army';
 import { armyDetachments } from '@/src/lib/detachments';
 import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { Metadata } from 'next';
@@ -13,6 +13,7 @@ export default async function DetachmentPage(props: PageProps<'/[army]/detachmen
   const detachment = armyDetachments[army as Army]?.find(
     (detachment) => detachment.slug === detachmentSlug,
   );
+  const defaultArmyFaction = defaultArmyFactions[army as Army];
 
   if (!detachment) {
     notFound();
@@ -37,7 +38,14 @@ export default async function DetachmentPage(props: PageProps<'/[army]/detachmen
         <hr className="my-4 border-dashed border-base-content/50" />
         <div className="flex flex-col gap-2">
           <h2 className="px-5">Detachment Rules</h2>
-          <Markdown>{detachment.description}</Markdown>
+          {detachment.changes && (
+            <div className="flex flex-col gap-2 px-5">
+              <DetachmentChangesBlock
+                changes={detachment.changes}
+                defaultArmyFaction={defaultArmyFaction}
+              />
+            </div>
+          )}
           {detachment.rules?.map((rule) => (
             <AbilitiesBlock
               key={rule.name}
