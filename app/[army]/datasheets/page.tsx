@@ -1,7 +1,7 @@
-import ListItemLink from '@/src/components/ListItemLink';
-import Navbar from '@/src/components/Navbar';
+import ListItemLink from '@/src/components/common/ListItemLink';
+import Navbar from '@/src/components/layout/Navbar';
 import { Army, getArmyOrNotFound } from '@/src/lib/army';
-import { assertAllDataSheetsAreUsed } from '@/src/lib/assert-data-sheets-loaded';
+import { assertAllDataSheetsAreUsed } from '@/src/lib/assert-data-sheets-loader';
 import { armyDataSheets } from '@/src/lib/data-sheets';
 import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { Metadata } from 'next';

@@ -1,4 +1,4 @@
-import Navigation from '@/src/components/Navigation';
+import Navigation from '@/src/components/layout/Navigation';
 
 export default function RootLayout({ children }: Readonly<React.PropsWithChildren>) {
   return (

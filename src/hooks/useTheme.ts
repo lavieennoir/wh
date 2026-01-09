@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import * as ThemeLoader from '../components/ThemeLoader';
+import * as ThemeLoader from '../components/layout/ThemeLoader';
 
 export const useTheme = () => {
   const [theme, setTheme] = useState<'light' | 'dark' | null>(null);

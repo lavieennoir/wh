@@ -26,7 +26,7 @@ const subAbilitySchema = z.object({
   description: z.string(),
 });
 
-const abilitySchema = z.object({
+export const abilitySchema = z.object({
   name: z.string(),
   description: z.string(),
   subAbilities: z.array(subAbilitySchema).optional(),
@@ -124,6 +124,8 @@ export const dataSheetValidationSchema = z.object({
   wargearOptions: z.array(wargearOptionSchema).optional(),
   supremeCommander: z.string().optional(),
 });
+
+export const dataSheetArrayValidationSchema = z.array(dataSheetValidationSchema);
 
 export type DataSheet = z.infer<typeof dataSheetValidationSchema>;
 export type RangedWeapon = z.infer<typeof rangedWeaponSchema>;

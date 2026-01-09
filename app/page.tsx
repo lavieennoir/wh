@@ -1,7 +1,6 @@
-import InstallationPrompt from '@/src/components/InstallationPrompt';
-import ListItemLink from '@/src/components/ListItemLink';
-import Navbar from '@/src/components/Navbar';
-import Navigation from '@/src/components/Navigation';
+import ListItemLink from '@/src/components/common/ListItemLink';
+import Navbar from '@/src/components/layout/Navbar';
+import Navigation from '@/src/components/layout/Navigation';
 import { Army } from '@/src/lib/army';
 import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { Metadata } from 'next';
@@ -16,7 +15,6 @@ export default function Home() {
   return (
     <>
       <Navbar title="Armies" hideBackButton />
-      <InstallationPrompt />
       <main className="p-2 pb-16">
         <ul className="list gap-2">
           {armies.map((army) => (
@@ -36,11 +34,6 @@ export default function Home() {
             <ListItemLink href="#">
               Adeptus Mechanicus
               <span className="badge badge-soft badge-info ml-2">Coming Soon</span>
-            </ListItemLink>
-          </li>
-          <li>
-            <ListItemLink href="#">
-              Chaos Daemons<span className="badge badge-soft badge-info ml-2">Coming Soon</span>
             </ListItemLink>
           </li>
           <li>

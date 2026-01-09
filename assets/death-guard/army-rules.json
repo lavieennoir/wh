@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Nurgle's Gift (Aura)",
+    "description": "If your Army Faction is **Death Guard**, while an enemy unit is within Contagion Range of one or more *Death Guard* models from your army, it is Afflicted (see below).",
+    "abilities": [
+      {
+        "name": "Contagion Range",
+        "description": "Contagion Range changes over the course of the battle: ![Contagion Range 1](/img/death-guard/contagion-range-1.webp) ![Contagion Range 2](/img/death-guard/contagion-range-2.webp) ![Contagion Range 3](/img/death-guard/contagion-range-3.webp)"
+      },
+      {
+        "name": "Afflicted",
+        "description": "During the Declare Battle Formations step, select one of the Plagues below. Until the end of the battle, while an enemy unit is Afflicted, subtract 1 from the Toughness characteristic of models in that unit, and that unit has the effect of your chosen Plague.",
+        "subAbilities": [
+          {
+            "name": "Skullsquirm Blight",
+            "description": "Each time a model in this unit makes an attack, subtract 1 from the Hit roll."
+          },
+          {
+            "name": "Rattlejoint Ague",
+            "description": "Worsen the Save characteristic of models in this unit by 1."
+          },
+          {
+            "name": "Scabrous Soulrot",
+            "description": "Worsen the Move, Leadership, and Objective Control characteristics of models in this unit by 1 (this rule can only worsen a model's Objective Control characteristic to a minimum of 1)."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Pact of Decay",
+    "description": "When mustering your army, unless specifically stated otherwise, you cannot select **Plague Legions** as your Army Faction."
+  }
+]

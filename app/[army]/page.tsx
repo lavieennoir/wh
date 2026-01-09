@@ -1,7 +1,7 @@
-import ListItemLink from '@/src/components/ListItemLink';
-import Navbar from '@/src/components/Navbar';
+import ListItemLink from '@/src/components/common/ListItemLink';
+import Navbar from '@/src/components/layout/Navbar';
 import { Army } from '@/src/lib/army';
-import { assertAllDataSheetsAreUsed } from '@/src/lib/assert-data-sheets-loaded';
+import { assertAllDataSheetsAreUsed } from '@/src/lib/assert-data-sheets-loader';
 import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { Metadata } from 'next';
 
@@ -17,10 +17,7 @@ export default async function ArmyPage(props: PageProps<'/[army]'>) {
             <ListItemLink href={`/${army}/datasheets`}>Datasheets</ListItemLink>
           </li>
           <li>
-            <ListItemLink href="#">
-              Army Rules
-              <span className="badge badge-soft badge-info ml-2">Coming Soon</span>
-            </ListItemLink>
+            <ListItemLink href={`/${army}/army-rules`}>Army Rules</ListItemLink>
           </li>
           <li>
             <ListItemLink href="#">

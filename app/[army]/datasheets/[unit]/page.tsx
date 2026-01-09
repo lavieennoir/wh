@@ -1,7 +1,7 @@
-import Navbar from '@/src/components/Navbar';
+import Navbar from '@/src/components/layout/Navbar';
 import Unit from '@/src/components/unit/Unit';
 import { Army } from '@/src/lib/army';
-import { assertAllDataSheetsAreUsed } from '@/src/lib/assert-data-sheets-loaded';
+import { assertAllDataSheetsAreUsed } from '@/src/lib/assert-data-sheets-loader';
 import { armyDataSheets } from '@/src/lib/data-sheets';
 import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { Metadata } from 'next';

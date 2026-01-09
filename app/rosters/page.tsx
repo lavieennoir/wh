@@ -1,5 +1,5 @@
 import InformationCircleIcon from '@/public/icons/information-circle.svg';
-import Navbar from '@/src/components/Navbar';
+import Navbar from '@/src/components/layout/Navbar';
 
 export default function RosterPage() {
   return (

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "The Shadow of Chaos",
+    "description": "If your Army Faction is **Legiones Daemonica**, certain areas of the battlefield are considered to be within your army's Shadow of Chaos, as follows:\n\n- Your deployment zone is always within your army's Shadow of Chaos.\n- At the start of any phase, if you control at least half of the objective markers within No Man's Land, until the end of that phase, No Man's Land is within your army's Shadow of Chaos.\n- At the start of any phase, if you control at least half of the objective markers within your opponent's deployment zone, until the end of that phase, your opponent's deployment zone is within your army's Shadow of Chaos.",
+    "abilities": [
+      {
+        "name": "Daemonic Manifestation",
+        "description": "While a **Legiones Daemonica** unit from your army is within your army's Shadow of Chaos, each time that unit takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a **Battleline** unit and that test is passed, up to D3 destroyed models can be returned to that unit instead)."
+      },
+      {
+        "name": "Daemonic Terror",
+        "description": "While an enemy unit is within your army's Shadow of Chaos and/or it is within 6\" of one or more **Bloodthirster**, **Great Unclean One**, **Kairos Fateweaver**, **Keeper of Secrets**, **Lord of Change**, **Rotigus**, **Shalaxi Helbane** or **Skarbrand** units from your army, each time that unit takes a Battle-shock test, subtract 1 from that test and, if that test is failed, that enemy unit suffers D3 mortal wounds."
+      }
+    ]
+  }
+]

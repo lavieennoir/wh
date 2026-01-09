@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 
 export enum Army {
+  ChaosDaemons = 'chaos-daemons',
   DeathGuard = 'death-guard',
 }
 

@@ -1,5 +1,5 @@
-import ServiceWorkerManager from '@/src/components/ServiceWorkerManager';
-import ThemeLoader from '@/src/components/ThemeLoader';
+import ServiceWorkerManager from '@/src/components/layout/ServiceWorkerManager';
+import ThemeLoader from '@/src/components/layout/ThemeLoader';
 import Head from 'next/head';
 import './globals.css';
 
