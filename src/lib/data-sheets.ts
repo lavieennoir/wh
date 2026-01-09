@@ -1,5 +1,5 @@
-import chaosDaemonsDataSheets from '@/assets/chaos-daemons/datasheets.json';
-import deathGuardDataSheets from '@/assets/death-guard/datasheets.json';
+import chaosDaemonsDataSheets from '@/data/chaos-daemons/datasheets.json';
+import deathGuardDataSheets from '@/data/death-guard/datasheets.json';
 import { DataSheet, dataSheetArrayValidationSchema } from '../schemas/data-sheet.schema';
 import { Army } from './army';
 

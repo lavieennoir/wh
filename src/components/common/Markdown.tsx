@@ -13,6 +13,11 @@ const components: Components = {
     const className = ['my-2', props.className].filter(Boolean).join(' ');
     return <img {...props} alt={alt} className={className} loading="lazy" />;
   },
+  strong: ({ node, ...props }) => {
+    return (
+      <strong {...props} className={['uppercase', props.className].filter(Boolean).join(' ')} />
+    );
+  },
 };
 
 export default function Markdown({

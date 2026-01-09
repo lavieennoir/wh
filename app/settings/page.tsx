@@ -1,6 +1,11 @@
 import Navbar from '@/src/components/layout/Navbar';
 import ExpandAllUnitsByDefaultControl from '@/src/components/settings/ExpandAllUnitsByDefaultControl';
 import ThemeController from '@/src/components/settings/ThemeController';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Settings',
+};
 
 export default async function SettingsPage() {
   return (

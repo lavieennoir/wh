@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "virulent-vectorium",
+    "name": "Virulent Vectorium",
+    "rules": [
+      {
+        "name": "Worldblight",
+        "description": "If you control an objective marker at the end of your Command phase and a **Death Guard** unit from your army (excluding Battle-shocked units) is within range of that objective marker, that objective marker remains under your control until your opponent's Level of Control over that objective marker is greater than yours at the end of a phase. In addition, until you lose control of that objective marker, it has the Nurgle's Gift ability as if it were a **Death Guard** model from your army."
+      }
+    ],
+    "enchantments": [
+      {
+        "name": "Daemon Weapon of Nurgle",
+        "cost": 10,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. Each time the bearer makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+      },
+      {
+        "name": "Furnace of Plagues",
+        "cost": 25,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. Add 1 to the Strength and Attacks characteristics of the bearers melee weapons, and the bearer's melee weapons have the **[Devastating Wounds]** ability."
+      },
+      {
+        "name": "Arch Contaminator",
+        "cost": 25,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. While the bearer's unit is within range of an objective marker you control, each time a model in the bearer's unit makes an attack, you can re-roll the Wound roll."
+      },
+      {
+        "name": "Revolting Regeneration",
+        "cost": 20,
+        "requiredKeywords": ["Death Guard"],
+        "description": "**Death Guard** model only. The bearer has the Feel No Pain 5+ ability."
+      }
+    ],
+    "stratagems": [
+      {
+        "name": "Putrid Detonation",
+        "cost": 1,
+        "phase": "Any",
+        "turn": "Any",
+        "content": {
+          "when": "Any phase",
+          "target": "One **Death Guard Vehicle** or **Death Guard Monster** model from your army with the Deadly Demise ability that was just destroyed. You can use this Stratagem on that model even though it was just destroyed.",
+          "effect": "Do not roll one D6 to determine whether mortal wounds are inflicted by your model's Deadly Demise ability. Instead, mortal wounds are automatically inflicted. In addition, any enemy units that suffer mortal wounds as a result of this Stratagem are Afflicted until the start of your next turn."
+        }
+      },
+      {
+        "name": "Leechspore Eruption",
+        "cost": 1,
+        "phase": ["Command"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Command phase.",
+          "target": "One **Death Guard** model your army that has lost one or more wounds.",
+          "effect": "Select one enemy unit within 3\" of your model. Roll a number of D6 equal to the number of wounds your model has lost: for each 5+, that enemy unit suffers one mortal wound (to a maximum of 6 mortal wounds) and your model regains 1 lost wound (to a maximum of 6 lost wounds)."
+        }
+      },
+      {
+        "name": "Disgustingly Resilient",
+        "cost": 2,
+        "phase": ["Shooting", "Fight"],
+        "turn": "Opponent",
+        "content": {
+          "when": "Your opponent's Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+          "target": "One **Death Guard** unit from your army that was selected as the target of one or more of the attacking unit's attacks.",
+          "effect": "Until the end of the phase, each time an attack is allocated to a model in your unit, subtract 1 from the Damage characteristic of that attack."
+        }
+      },
+      {
+        "name": "Overwhelming Generosity",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Start of your Shooting phase.",
+          "target": "One **Death Guard Character** unit from your army.",
+          "effect": "Select one enemy unit visible to your unit. Until the end of the phase, each time a **Death Guard** unit from your army selects that enemy unit as the target of any ranged attacks, you can re-roll the dice to determine how many attacks a weapon equipped by a model in that unit makes."
+        }
+      },
+      {
+        "name": "Plaguesurge",
+        "cost": 2,
+        "phase": ["Command"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Command phase.",
+          "target": "Your **Death Guard Warlord** that is on the battlefield.",
+          "effect": "Until the start of your next Command phase, add 3\" to the Contagion Range of models from your army."
+        }
+      },
+      {
+        "name": "Creeping Blight",
+        "cost": 1,
+        "phase": ["Shooting"],
+        "turn": "Your",
+        "content": {
+          "when": "Your Shooting phase.",
+          "target": "One **Death Guard Infantry** unit from your army that has not been selected to shoot this phase.",
+          "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack that targets an Afflicted unit, you can re-roll the Hit roll and you can re-roll the Wound roll."
+        }
+      }
+    ]
+  }
+]

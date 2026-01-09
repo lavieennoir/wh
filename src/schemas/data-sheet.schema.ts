@@ -21,7 +21,7 @@ const meleeWeaponSchema = z.object({
   abilities: z.array(z.string()).optional(),
 });
 
-const subAbilitySchema = z.object({
+export const subAbilitySchema = z.object({
   name: z.string(),
   description: z.string(),
 });
