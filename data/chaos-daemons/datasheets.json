@@ -1,1 +1,1062 @@
-[]
+[
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "beasts-of-nurgle",
+    "name": "Beasts of Nurgle",
+    "baseSize": "60mm",
+    "keywords": ["Beast", "Chaos", "Daemon", "Nurgle", "Beasts of Nurgle"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["putrid appendages"],
+      "models": [{ "model": "Beast of Nurgle", "minCount": 1, "maxCount": 2 }],
+      "cost": [
+        { "points": 65, "models": { "Beast of Nurgle": { "minCount": 1, "maxCount": 1 } } },
+        { "points": 130, "models": { "Beast of Nurgle": { "minCount": 2, "maxCount": 2 } } }
+      ]
+    },
+    "stats": {
+      "movement": 6,
+      "toughness": 9,
+      "save": 6,
+      "wounds": 7,
+      "leadership": 7,
+      "objectiveControl": 3,
+      "invulnerableSave": 5
+    },
+    "abilities": [
+      {
+        "name": "Grotesque Regeneration",
+        "description": "At the end of each phase, if a Beasts of Nurgle model in this unit has lost any wounds but is not destroyed, that model regains all of its lost wounds."
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Putrid appendages",
+        "attacks": "6",
+        "weaponSkill": 4,
+        "strength": 6,
+        "armourPenetration": -1,
+        "damage": "2",
+        "abilities": ["Devastating Wounds"]
+      }
+    ],
+    "coreAbilities": ["Deadly Demise 1", "Deep Strike", "Scouts 6\""],
+    "factionAbility": "The Shadow of Chaos"
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "be-lakor",
+    "name": "Be'lakor",
+    "baseSize": "100mm",
+    "keywords": [
+      "Monster",
+      "Character",
+      "Fly",
+      "Epic Hero",
+      "Psyker",
+      "Chaos",
+      "Daemon",
+      "Be'lakor"
+    ],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["the Blade of Shadows"],
+      "models": [{ "model": "Be'lakor", "minCount": 1, "maxCount": 1 }],
+      "cost": [{ "points": 375, "models": { "Be'lakor": { "minCount": 1, "maxCount": 1 } } }]
+    },
+    "stats": {
+      "movement": 12,
+      "toughness": 11,
+      "save": 3,
+      "wounds": 20,
+      "leadership": 6,
+      "objectiveControl": 5,
+      "invulnerableSave": 4
+    },
+    "abilities": [
+      {
+        "name": "The Dark Master (Aura)",
+        "description": "The area of the battlefield within 6\" of this model is within your army's Shadow of Chaos."
+      },
+      {
+        "name": "Shadow Form Abilities",
+        "description": "At the start of the battle round, select one Shadow Form ability. Until the end of the battle round, this model has that ability.",
+        "subAbilities": [
+          {
+            "name": "Wreathed in Shadows (Aura, Psychic)",
+            "description": "While a friendly **Legiones Daemonica** unit or **Shadow Legion** unit is within 6\" of this model, that unit can only be targeted by a ranged attack if the attacking model is within 18\"."
+          },
+          {
+            "name": "Pall of Despair (Aura, Psychic)",
+            "description": "In the Battle-shock step of your opponent's Command phase, if an enemy unit that is below its Starting Strength is within 9\" of this model, that unit must take a Battle-shock test. For the purposes of this ability, if a unit has a Starting Strength of 1, it is considered to be below its Starting Strength while it has lost one or more wounds. In addition, for each enemy unit that fails a Battle-shock test within 9\" of this model, this model regains up to D3 lost wounds."
+          },
+          {
+            "name": "Shadow Lord (Aura, Psychic)",
+            "description": "While a friendly **Legiones Daemonica** or **Shadow Legion** unit is within 6\" of this model, each time a model in that unit makes an attack, re-roll a Hit roll of 1."
+          }
+        ]
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Betraying Shades - witchfire",
+        "range": 18,
+        "attacks": "9",
+        "ballisticSkill": 2,
+        "strength": 5,
+        "armourPenetration": -2,
+        "damage": "1",
+        "abilities": ["Devastating Wounds", "Ignores Cover", "Psychic"]
+      },
+      {
+        "name": "Betraying Shades - focused witchfire",
+        "range": 18,
+        "attacks": "12",
+        "ballisticSkill": 2,
+        "strength": 6,
+        "armourPenetration": -3,
+        "damage": "1",
+        "abilities": ["Devastating Wounds", "Hazardous", "Ignores Cover", "Psychic"]
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "The Blade of Shadows - strike",
+        "attacks": "7",
+        "weaponSkill": 2,
+        "strength": 14,
+        "armourPenetration": -4,
+        "damage": "D6+1",
+        "abilities": ["Devastating Wounds"]
+      },
+      {
+        "name": "The Blade of Shadows - sweep",
+        "attacks": "14",
+        "weaponSkill": 2,
+        "strength": 8,
+        "armourPenetration": -3,
+        "damage": "1",
+        "abilities": ["Sustained Hits 1"]
+      }
+    ],
+    "coreAbilities": ["Deadly Demise D6", "Deep Strike", "Stealth"],
+    "factionAbility": "The Shadow of Chaos",
+    "degradation": {
+      "woundsRemaining": "1-7",
+      "effect": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+    },
+    "supremeCommander": "If this model is in your army, it must be your Warlord."
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "daemon-prince-of-chaos",
+    "name": "Daemon Prince of Chaos",
+    "baseSize": "60mm",
+    "keywords": ["Monster", "Character", "Chaos", "Daemon", "Daemon Prince of Chaos"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["infernal cannon", "hellforged weapons"],
+      "models": [{ "model": "Daemon Prince of Chaos", "minCount": 1, "maxCount": 1 }],
+      "cost": [
+        { "points": 190, "models": { "Daemon Prince of Chaos": { "minCount": 1, "maxCount": 1 } } }
+      ]
+    },
+    "stats": {
+      "movement": 8,
+      "toughness": 10,
+      "save": 2,
+      "wounds": 10,
+      "leadership": 6,
+      "objectiveControl": 3,
+      "invulnerableSave": 4
+    },
+    "abilities": [
+      {
+        "name": "Daemonic Lord",
+        "description": "While this model is within 3\" of one or more friendly **Legiones Daemonica** **Infantry** units, this model has the Lone Operative ability."
+      },
+      {
+        "name": "Prince of Darkness (Aura)",
+        "description": "While a friendly **Legiones Daemonica** unit is within 6\" of this model, models in that unit have the Stealth ability."
+      },
+      {
+        "name": "Unholy Vigour",
+        "description": "Once per battle, at the start of any phase, this model can use this ability. If it does, until the end of the phase, this model has a 3+ invulnerable save."
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Infernal cannon",
+        "range": 24,
+        "attacks": "3",
+        "ballisticSkill": 2,
+        "strength": 5,
+        "armourPenetration": -1,
+        "damage": "2"
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Hellforged weapons - strike",
+        "attacks": "6",
+        "weaponSkill": 2,
+        "strength": 8,
+        "armourPenetration": -2,
+        "damage": "3"
+      },
+      {
+        "name": "Hellforged weapons - sweep",
+        "attacks": "14",
+        "weaponSkill": 2,
+        "strength": 6,
+        "armourPenetration": 0,
+        "damage": "1"
+      }
+    ],
+    "coreAbilities": ["Deadly Demise D3", "Deep Strike"],
+    "factionAbility": "The Shadow of Chaos",
+    "demonicAllegiance": {
+      "khorne": {
+        "overrides": {
+          "meleeWeapons": [
+            {
+              "name": "Hellforged weapons - strike",
+              "strength": { "value": 2, "modifier": "add" }
+            },
+            {
+              "name": "Hellforged weapons - sweep",
+              "strength": { "value": 2, "modifier": "add" }
+            }
+          ]
+        }
+      },
+      "tzeentch": {
+        "overrides": {
+          "rangedWeapons": [
+            { "name": "Infernal cannon", "attacks": { "value": 3, "modifier": "add" } }
+          ]
+        }
+      },
+      "nurgle": {
+        "overrides": {
+          "stats": { "toughness": { "value": 1, "modifier": "add" } }
+        }
+      },
+      "slaanesh": {
+        "overrides": {
+          "stats": { "movement": { "value": 2, "modifier": "add" } }
+        }
+      }
+    }
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "daemon-prince-of-chaos-with-wings",
+    "name": "Daemon Prince of Chaos with Wings",
+    "baseSize": "60mm",
+    "keywords": [
+      "Monster",
+      "Character",
+      "Fly",
+      "Chaos",
+      "Daemon",
+      "Daemon Prince of Chaos with Wings"
+    ],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["infernal cannon", "hellforged weapons"],
+      "models": [{ "model": "Daemon Prince of Chaos with Wings", "minCount": 1, "maxCount": 1 }],
+      "cost": [
+        {
+          "points": 180,
+          "models": { "Daemon Prince of Chaos with Wings": { "minCount": 1, "maxCount": 1 } }
+        }
+      ]
+    },
+    "stats": {
+      "movement": 12,
+      "toughness": 9,
+      "save": 2,
+      "wounds": 10,
+      "leadership": 6,
+      "objectiveControl": 3,
+      "invulnerableSave": 4
+    },
+    "abilities": [
+      {
+        "name": "Malefic Destruction",
+        "description": "Once per battle, at the start of the Fight phase, this model can use this ability. If it does, until the end of the phase, add 3 to the Attacks characteristic of this model's hellforged weapons."
+      },
+      {
+        "name": "Harbinger of Death",
+        "description": "Each time this model is selected to fight, select one of the following abilities. Until the end of the phase, this model's hellforged weapons have that ability: \n\n- **[Lethal Hits]** \n- **[Precision]** \n- **[Sustained Hits 1]**"
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Infernal cannon",
+        "range": 24,
+        "attacks": "3",
+        "ballisticSkill": 2,
+        "strength": 5,
+        "armourPenetration": -1,
+        "damage": "2"
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Hellforged weapons - strike",
+        "attacks": "6",
+        "weaponSkill": 2,
+        "strength": 8,
+        "armourPenetration": -2,
+        "damage": "3"
+      },
+      {
+        "name": "Hellforged weapons - sweep",
+        "attacks": "14",
+        "weaponSkill": 2,
+        "strength": 6,
+        "armourPenetration": 0,
+        "damage": "1"
+      }
+    ],
+    "coreAbilities": ["Deadly Demise D3", "Deep Strike"],
+    "factionAbility": "The Shadow of Chaos",
+    "demonicAllegiance": {
+      "khorne": {
+        "overrides": {
+          "meleeWeapons": [
+            {
+              "name": "Hellforged weapons - strike",
+              "strength": { "value": 2, "modifier": "add" }
+            },
+            { "name": "Hellforged weapons - sweep", "strength": { "value": 2, "modifier": "add" } }
+          ]
+        }
+      },
+      "tzeentch": {
+        "overrides": {
+          "rangedWeapons": [
+            { "name": "Infernal cannon", "attacks": { "value": 3, "modifier": "add" } }
+          ]
+        }
+      },
+      "nurgle": {
+        "overrides": {
+          "stats": { "toughness": { "value": 1, "modifier": "add" } }
+        }
+      },
+      "slaanesh": {
+        "overrides": {
+          "stats": { "movement": { "value": 2, "modifier": "add" } }
+        }
+      }
+    }
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "great-unclean-one",
+    "name": "Great Unclean One",
+    "baseSize": "130mm",
+    "keywords": [
+      "Monster",
+      "Character",
+      "Psyker",
+      "Chaos",
+      "Daemon",
+      "Nurgle",
+      "Great Unclean One"
+    ],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["plague flail", "putrid vomit", "bilesword"],
+      "models": [{ "model": "Great Unclean One", "minCount": 1, "maxCount": 1 }],
+      "cost": [
+        { "points": 250, "models": { "Great Unclean One": { "minCount": 1, "maxCount": 1 } } }
+      ]
+    },
+    "stats": {
+      "movement": 7,
+      "toughness": 12,
+      "save": 5,
+      "wounds": 20,
+      "leadership": 6,
+      "objectiveControl": 5,
+      "invulnerableSave": 4
+    },
+    "abilities": [
+      {
+        "name": "Greater Daemon of Nurgle (Aura)",
+        "description": "While a friendly **Nurgle** **Legiones Daemonica** unit is within 6\" of this model, that unit is within your army's Shadow of Chaos."
+      },
+      {
+        "name": "Daemon Lord of Nurgle (Aura)",
+        "description": "While a friendly **Nurgle** **Legiones Daemonica** unit is within 6\" of this model, add 1 to the Toughness characteristic of models in that unit."
+      },
+      {
+        "name": "Nurgle's Rot (Psychic)",
+        "description": "At the end of your Movement phase, you can select one enemy unit within 12\" of this model. Until the start of your next Movement phase, subtract 1 from the Toughness characteristic of models in that unit."
+      }
+    ],
+    "wargearAbilities": [
+      {
+        "name": "Reverberating Summons",
+        "description": "Each time a model is destroyed by this weapon, you can select one friendly PLAGUEBEARERS unit within 12\" of the bearer and return 1 destroyed Plaguebearer model to that unit."
+      }
+    ],
+    "wargearOptions": [
+      {
+        "target": {
+          "model": "Great Unclean One",
+          "eachXModels": 1,
+          "wargearToReplace": ["Plague flail"]
+        },
+        "options": [
+          {
+            "amount": 1,
+            "wargear": "Bileblade"
+          }
+        ]
+      },
+      {
+        "target": {
+          "model": "Great Unclean One",
+          "eachXModels": 1,
+          "wargearToReplace": ["Bilesword"]
+        },
+        "options": [{ "amount": 1, "wargear": "Doomsday bell" }]
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Plague flail",
+        "range": 6,
+        "attacks": "D6+1",
+        "ballisticSkill": 3,
+        "strength": 7,
+        "armourPenetration": -2,
+        "damage": "2"
+      },
+      {
+        "name": "Putrid vomit",
+        "range": 12,
+        "attacks": "D6+3",
+        "ballisticSkill": null,
+        "strength": 5,
+        "armourPenetration": -2,
+        "damage": "1",
+        "abilities": ["Ignores Cover", "Torrent"]
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Bileblade",
+        "attacks": "3",
+        "weaponSkill": 2,
+        "strength": 6,
+        "armourPenetration": -2,
+        "damage": "2",
+        "abilities": ["Extra Attacks", "Lethal Hits"]
+      },
+      {
+        "name": "Bilesword - strike",
+        "attacks": "6",
+        "weaponSkill": 2,
+        "strength": 10,
+        "armourPenetration": -2,
+        "damage": "D6+1",
+        "abilities": ["Lethal Hits"]
+      },
+      {
+        "name": "Bilesword - sweep",
+        "attacks": "12",
+        "weaponSkill": 2,
+        "strength": 7,
+        "armourPenetration": -1,
+        "damage": "1",
+        "abilities": ["Lethal Hits"]
+      },
+      {
+        "name": "Doomsday bell",
+        "attacks": "6",
+        "weaponSkill": 2,
+        "strength": 7,
+        "armourPenetration": -1,
+        "damage": "2",
+        "abilities": ["Lethal Hits", "Reverberating Summons"]
+      }
+    ],
+    "coreAbilities": ["Deadly Demise D6", "Deep Strike", "Feel No Pain 6+"],
+    "factionAbility": "The Shadow of Chaos",
+    "degradation": {
+      "woundsRemaining": "1-7",
+      "effect": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+    }
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "horticulous-slimux",
+    "name": "Horticulous Slimux",
+    "baseSize": "105mm x 70mm",
+    "keywords": [
+      "Mounted",
+      "Character",
+      "Epic Hero",
+      "Chaos",
+      "Daemon",
+      "Nurgle",
+      "Horticulous Slimux"
+    ],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["acidic maw", "lopping shears"],
+      "models": [{ "model": "Horticulous Slimux", "minCount": 1, "maxCount": 1 }],
+      "cost": [
+        { "points": 120, "models": { "Horticulous Slimux": { "minCount": 1, "maxCount": 1 } } }
+      ]
+    },
+    "stats": {
+      "movement": 6,
+      "toughness": 10,
+      "save": 3,
+      "wounds": 10,
+      "leadership": 7,
+      "objectiveControl": 2,
+      "invulnerableSave": 4
+    },
+    "abilities": [
+      {
+        "name": "Beast Handler",
+        "description": "While this model is leading a unit, you can re-roll Charge rolls made for that unit. In addition, once per battle, you can target that unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+      },
+      {
+        "name": "Seed the Garden of Nurgle",
+        "description": "At the end of your Movement phase, if this model is within one Area Terrain feature, until the end of the battle, that Area Terrain feature is considered to be within your army's Shadow of Chaos."
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Acidic maw",
+        "attacks": "2",
+        "weaponSkill": 4,
+        "strength": 7,
+        "armourPenetration": -4,
+        "damage": "3",
+        "abilities": ["Devastating Wounds", "Extra Attacks"]
+      },
+      {
+        "name": "Lopping shears",
+        "attacks": "4",
+        "weaponSkill": 3,
+        "strength": 6,
+        "armourPenetration": -2,
+        "damage": "3",
+        "abilities": ["Lethal Hits"]
+      }
+    ],
+    "coreAbilities": ["Deep Strike", "Leader"],
+    "factionAbility": "The Shadow of Chaos",
+    "leader": {
+      "attachableTo": ["Beasts of Nurgle"]
+    }
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "nurglings",
+    "name": "Nurglings",
+    "baseSize": "40mm",
+    "keywords": ["Swarm", "Battleline", "Chaos", "Daemon", "Nurgle", "Nurglings"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["diseased claws and teeth"],
+      "models": [{ "model": "Nurgling Swarms", "minCount": 3, "maxCount": 6 }],
+      "cost": [
+        { "points": 40, "models": { "Nurgling Swarms": { "minCount": 3, "maxCount": 3 } } },
+        { "points": 70, "models": { "Nurgling Swarms": { "minCount": 4, "maxCount": 6 } } }
+      ]
+    },
+    "stats": {
+      "movement": 5,
+      "toughness": 3,
+      "save": 7,
+      "wounds": 4,
+      "leadership": 8,
+      "objectiveControl": 0,
+      "invulnerableSave": 5
+    },
+    "abilities": [
+      {
+        "name": "Mischief Makers",
+        "description": "Each time an enemy unit (excluding **Titanic** units) within Engagement Range of one or more units with this ability is selected to fight, until the end of the phase, each time a model in that enemy unit makes a melee attack, subtract 1 from the Hit roll."
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Diseased claws and teeth",
+        "attacks": "4",
+        "weaponSkill": 5,
+        "strength": 2,
+        "armourPenetration": 0,
+        "damage": "1",
+        "abilities": ["Lethal Hits"]
+      }
+    ],
+    "coreAbilities": ["Deep Strike", "Infiltrators"],
+    "factionAbility": "The Shadow of Chaos"
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "plaguebearers",
+    "name": "Plaguebearers",
+    "baseSize": "32mm",
+    "keywords": ["Infantry", "Battleline", "Chaos", "Daemon", "Nurgle", "Plaguebearers"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["plaguesword"],
+      "models": [
+        { "model": "Plagueridden", "minCount": 1, "maxCount": 1 },
+        { "model": "Plaguebearer", "minCount": 9, "maxCount": 9 }
+      ],
+      "cost": [
+        {
+          "points": 110,
+          "models": {
+            "Plagueridden": { "minCount": 1, "maxCount": 1 },
+            "Plaguebearer": { "minCount": 9, "maxCount": 9 }
+          }
+        }
+      ]
+    },
+    "stats": {
+      "movement": 5,
+      "toughness": 5,
+      "save": 7,
+      "wounds": 2,
+      "leadership": 7,
+      "objectiveControl": 2,
+      "invulnerableSave": 5
+    },
+    "abilities": [
+      {
+        "name": "Infected Outbreak",
+        "description": "If you control an objective marker at the end of your Command phase and this unit is within range of that objective marker, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+      }
+    ],
+    "wargearAbilities": [
+      {
+        "name": "Daemonic Icon",
+        "description": "Models in the bearer's unit have a Leadership characteristic of 6+."
+      },
+      {
+        "name": "Instrument of Chaos",
+        "description": "Add 1 to Charge rolls made for the bearer's unit."
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Plaguesword",
+        "attacks": "2",
+        "weaponSkill": 3,
+        "strength": 4,
+        "armourPenetration": -1,
+        "damage": "1",
+        "abilities": ["Lethal Hits"]
+      }
+    ],
+    "coreAbilities": ["Deep Strike"],
+    "factionAbility": "The Shadow of Chaos"
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "plague-drones",
+    "name": "Plague Drones",
+    "baseSize": "60mm",
+    "keywords": ["Mounted", "Fly", "Chaos", "Daemon", "Nurgle", "Plague Drones"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["death's heads", "foul mouthparts", "plaguesword"],
+      "models": [
+        { "model": "Plaguebringer", "minCount": 1, "maxCount": 1 },
+        { "model": "Plague Drone", "minCount": 2, "maxCount": 5 }
+      ],
+      "cost": [
+        {
+          "points": 110,
+          "models": {
+            "Plaguebringer": { "minCount": 1, "maxCount": 1 },
+            "Plague Drone": { "minCount": 2, "maxCount": 2 }
+          }
+        },
+        {
+          "points": 220,
+          "models": {
+            "Plaguebringer": { "minCount": 1, "maxCount": 1 },
+            "Plague Drone": { "minCount": 3, "maxCount": 5 }
+          }
+        }
+      ]
+    },
+    "stats": {
+      "movement": 10,
+      "toughness": 8,
+      "save": 6,
+      "wounds": 5,
+      "leadership": 7,
+      "objectiveControl": 2,
+      "invulnerableSave": 5
+    },
+    "abilities": [
+      {
+        "name": "Death's Heads",
+        "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. Until the end of the turn, each time a friendly **Nurgle** **Legiones Daemonica** unit makes an attack that targets that unit, you can re-roll the Wound roll."
+      }
+    ],
+    "wargearAbilities": [
+      {
+        "name": "Daemonic Icon",
+        "description": "Models in the bearer's unit have a Leadership characteristic of 6+."
+      },
+      {
+        "name": "Instrument of Chaos",
+        "description": "Add 1 to Charge rolls made for the bearer's unit."
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Death's heads",
+        "range": 12,
+        "attacks": "D3",
+        "ballisticSkill": 4,
+        "strength": 4,
+        "armourPenetration": 0,
+        "damage": "1",
+        "abilities": ["Blast", "Lethal Hits"]
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Foul mouthparts",
+        "attacks": "2",
+        "weaponSkill": 4,
+        "strength": 5,
+        "armourPenetration": -1,
+        "damage": "2",
+        "abilities": ["Extra Attacks", "Lethal Hits"]
+      },
+      {
+        "name": "Plaguesword",
+        "attacks": "2",
+        "weaponSkill": 3,
+        "strength": 4,
+        "armourPenetration": -1,
+        "damage": "1",
+        "abilities": ["Lethal Hits"]
+      }
+    ],
+    "coreAbilities": ["Deep Strike"],
+    "factionAbility": "The Shadow of Chaos"
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "skull-cannon",
+    "name": "Skull Cannon",
+    "baseSize": "120mm x 92mm",
+    "keywords": ["Mounted", "Chaos", "Daemon", "Khorne", "Skull Cannon"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["skull cannon", "attendants' hellblades", "biting maw"],
+      "models": [{ "model": "Skull Cannon", "minCount": 1, "maxCount": 1 }],
+      "cost": [{ "points": 95, "models": { "Skull Cannon": { "minCount": 1, "maxCount": 1 } } }]
+    },
+    "stats": {
+      "movement": 8,
+      "toughness": 9,
+      "save": 4,
+      "wounds": 9,
+      "leadership": 7,
+      "objectiveControl": 3,
+      "invulnerableSave": 4
+    },
+    "abilities": [
+      {
+        "name": "Skulls of the Fallen",
+        "description": "In your Shooting phase, after this model has shot, select one enemy unit that was hit by one or more of those attacks. That unit must take a Battle-shock test."
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Skull cannon",
+        "range": 48,
+        "attacks": "D6+2",
+        "ballisticSkill": 3,
+        "strength": 9,
+        "armourPenetration": -1,
+        "damage": "2",
+        "abilities": ["Blast"]
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Attendants' hellblades",
+        "attacks": "4",
+        "weaponSkill": 3,
+        "strength": 5,
+        "armourPenetration": -2,
+        "damage": "2",
+        "abilities": ["Extra Attacks"]
+      },
+      {
+        "name": "Biting maw",
+        "attacks": "2",
+        "weaponSkill": 4,
+        "strength": 6,
+        "armourPenetration": 0,
+        "damage": "2"
+      }
+    ],
+    "coreAbilities": ["Deep Strike"],
+    "factionAbility": "The Shadow of Chaos"
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "soul-grinder",
+    "name": "Soul Grinder",
+    "baseSize": "160mm",
+    "keywords": ["Vehicle", "Walker", "Chaos", "Daemon", "Soul Grinder"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["harvester cannon", "iron claw", "warpclaw"],
+      "models": [{ "model": "Soul Grinder", "minCount": 1, "maxCount": 1 }],
+      "cost": [{ "points": 180, "models": { "Soul Grinder": { "minCount": 1, "maxCount": 1 } } }]
+    },
+    "stats": {
+      "movement": 8,
+      "toughness": 11,
+      "save": 3,
+      "wounds": 14,
+      "leadership": 7,
+      "objectiveControl": 5,
+      "invulnerableSave": 4
+    },
+    "abilities": [
+      {
+        "name": "Scuttling Walker",
+        "description": "Each time this model makes a Normal or Advance move, it can move over friendly **Monster** and **Vehicle** models and terrain features that are 4\" or less in height as if they were not there."
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Harvester cannon",
+        "range": 36,
+        "attacks": "3",
+        "ballisticSkill": 3,
+        "strength": 10,
+        "armourPenetration": -1,
+        "damage": "3"
+      },
+      {
+        "name": "Phlegm bombardment",
+        "range": 36,
+        "attacks": "D6+1",
+        "ballisticSkill": 3,
+        "strength": 7,
+        "armourPenetration": -1,
+        "damage": "2",
+        "abilities": ["Blast", "Indirect Fire", "Lethal Hits"]
+      },
+      {
+        "name": "Scream of despair",
+        "range": 24,
+        "attacks": "6",
+        "ballisticSkill": 3,
+        "strength": 9,
+        "armourPenetration": -2,
+        "damage": "2",
+        "abilities": ["Devastating Wounds", "Sustained Hits 1"]
+      },
+      {
+        "name": "Torrent of burning blood",
+        "range": 12,
+        "attacks": "2D6",
+        "ballisticSkill": null,
+        "strength": 5,
+        "armourPenetration": -1,
+        "damage": "1",
+        "abilities": ["Ignores Cover", "Torrent"]
+      },
+      {
+        "name": "Warp gaze",
+        "range": 48,
+        "attacks": "D3",
+        "ballisticSkill": 3,
+        "strength": 12,
+        "armourPenetration": -2,
+        "damage": "D6+2",
+        "abilities": ["Blast"]
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Iron claw",
+        "attacks": "5",
+        "weaponSkill": 3,
+        "strength": 16,
+        "armourPenetration": -3,
+        "damage": "D6+2"
+      },
+      {
+        "name": "Warpclaw",
+        "attacks": "6",
+        "weaponSkill": 3,
+        "strength": 8,
+        "armourPenetration": -1,
+        "damage": "2",
+        "abilities": ["Extra Attacks"]
+      },
+      {
+        "name": "Warpsword",
+        "attacks": "3",
+        "weaponSkill": 3,
+        "strength": 8,
+        "armourPenetration": -2,
+        "damage": "D6",
+        "abilities": ["Extra Attacks"]
+      }
+    ],
+    "coreAbilities": ["Deadly Demise D3", "Deep Strike"],
+    "factionAbility": "The Shadow of Chaos",
+    "degradation": {
+      "woundsRemaining": "1-5",
+      "effect": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+    },
+    "demonicAllegiance": {
+      "khorne": {
+        "wargearOptions": [
+          {
+            "target": {
+              "model": "Soul Grinder",
+              "eachXModels": 1
+            },
+            "options": [
+              {
+                "amount": 1,
+                "wargear": "Torrent of burning blood"
+              }
+            ]
+          }
+        ]
+      },
+      "tzeentch": {
+        "wargearOptions": [
+          {
+            "target": {
+              "model": "Soul Grinder",
+              "eachXModels": 1
+            },
+            "options": [
+              {
+                "amount": 1,
+                "wargear": "Warp gaze"
+              }
+            ]
+          }
+        ]
+      },
+      "nurgle": {
+        "wargearOptions": [
+          {
+            "target": {
+              "model": "Soul Grinder",
+              "eachXModels": 1
+            },
+            "options": [
+              {
+                "amount": 1,
+                "wargear": "Phlegm bombardment"
+              }
+            ]
+          }
+        ]
+      },
+      "slaanesh": {
+        "wargearOptions": [
+          {
+            "target": {
+              "model": "Soul Grinder",
+              "eachXModels": 1
+            },
+            "options": [
+              {
+                "amount": 1,
+                "wargear": "Scream of despair"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "updatedAt": "2026-01-11",
+    "slug": "spoilpox-scrivener",
+    "name": "Spoilpox Scrivener",
+    "baseSize": "40mm",
+    "keywords": ["Infantry", "Character", "Chaos", "Daemon", "Nurgle", "Spoilpox Scrivener"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["disgusting sneezes", "plaguesword and distended maw"],
+      "models": [{ "model": "Spoilpox Scrivener", "minCount": 1, "maxCount": 1 }],
+      "cost": [
+        { "points": 60, "models": { "Spoilpox Scrivener": { "minCount": 1, "maxCount": 1 } } }
+      ]
+    },
+    "stats": {
+      "movement": 5,
+      "toughness": 5,
+      "save": 7,
+      "wounds": 5,
+      "leadership": 6,
+      "objectiveControl": 1,
+      "invulnerableSave": 5
+    },
+    "abilities": [
+      {
+        "name": "Keep Counting!",
+        "description": "While this model is leading a unit, melee weapons equipped by models in that unit have the **[Sustained Hits 1]** ability."
+      },
+      {
+        "name": "Meet Your Quota!",
+        "description": "While this model is leading a unit, add 1 to the Objective Control characteristic of models in that unit."
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Disgusting sneezes",
+        "range": 6,
+        "attacks": "D6",
+        "ballisticSkill": null,
+        "strength": 3,
+        "armourPenetration": 0,
+        "damage": "1",
+        "abilities": ["Pistol", "Torrent"]
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Plaguesword and distended maw",
+        "attacks": "6",
+        "weaponSkill": 3,
+        "strength": 5,
+        "armourPenetration": -1,
+        "damage": "1",
+        "abilities": ["Lethal Hits"]
+      }
+    ],
+    "coreAbilities": ["Deep Strike", "Leader"],
+    "factionAbility": "The Shadow of Chaos",
+    "leader": {
+      "attachableTo": ["Plaguebearers"]
+    }
+  }
+]

@@ -1,3 +1,4 @@
+import { formatStatValue } from '@/src/lib/stat.utils';
 import { Stats } from '@/src/schemas/data-sheet.schema';
 
 export interface UnitStatsProps {
@@ -23,22 +24,28 @@ export default function UnitStats({ stats }: UnitStatsProps) {
       <tbody>
         <tr>
           <td>
-            <div className={statValueClassName}>{stats.movement}&quot;</div>
+            <div className={statValueClassName}>{formatStatValue(stats.movement, 'movement')}</div>
           </td>
           <td>
-            <div className={statValueClassName}>{stats.toughness}</div>
+            <div className={statValueClassName}>
+              {formatStatValue(stats.toughness, 'toughness')}
+            </div>
           </td>
           <td>
-            <div className={statValueClassName}>{stats.save}+</div>
+            <div className={statValueClassName}>{formatStatValue(stats.save, 'save')}</div>
           </td>
           <td>
-            <div className={statValueClassName}>{stats.wounds}</div>
+            <div className={statValueClassName}>{formatStatValue(stats.wounds, 'wounds')}</div>
           </td>
           <td>
-            <div className={statValueClassName}>{stats.leadership}+</div>
+            <div className={statValueClassName}>
+              {formatStatValue(stats.leadership, 'leadership')}
+            </div>
           </td>
           <td>
-            <div className={statValueClassName}>{stats.objectiveControl}</div>
+            <div className={statValueClassName}>
+              {formatStatValue(stats.objectiveControl, 'objectiveControl')}
+            </div>
           </td>
         </tr>
       </tbody>

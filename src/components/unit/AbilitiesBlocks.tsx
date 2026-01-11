@@ -1,3 +1,4 @@
+import Markdown from '@/src/components/common/Markdown';
 import { Ability } from '@/src/schemas/data-sheet.schema';
 import { Fragment } from 'react/jsx-runtime';
 import UnitBaseBlock from './UnitBaseBlock';
@@ -23,7 +24,7 @@ export default function AbilitiesBlocks({
             {ability.subAbilities?.map((subAbility) => (
               <Fragment key={subAbility.name}>
                 <span className="badge badge-base-content font-bold">{subAbility.name}</span>
-                <p>{subAbility.description}</p>
+                <Markdown>{subAbility.description}</Markdown>
               </Fragment>
             ))}
           </div>
@@ -61,7 +62,7 @@ export default function AbilitiesBlocks({
           {abilities.map((ability) => (
             <Fragment key={ability.name}>
               <span className="badge badge-base-content font-bold">{ability.name}</span>
-              <p>{ability.description}</p>
+              <Markdown>{ability.description}</Markdown>
             </Fragment>
           ))}
         </div>

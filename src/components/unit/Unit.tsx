@@ -1,6 +1,7 @@
 import pluralize from '@/src/lib/pluralize';
 import { DataSheet } from '@/src/schemas/data-sheet.schema';
 import AbilitiesBlocks from './AbilitiesBlocks';
+import DemonicAllegianceContent from './DemonicAllegianceContent';
 import MeleeWeaponsContent from './MeleeWeaponsContent';
 import RangedWeaponsContent from './RangedWeaponsContent';
 import UnitBaseBlock from './UnitBaseBlock';
@@ -46,6 +47,14 @@ export default function Unit({ dataSheet }: UnitProps) {
         factionAbility={dataSheet.factionAbility}
         abilities={dataSheet.abilities}
       />
+      {dataSheet.demonicAllegiance && (
+        <>
+          <UnitBaseBlock name="Demonic Allegiance">
+            <DemonicAllegianceContent allegiance={dataSheet.demonicAllegiance} />
+          </UnitBaseBlock>
+          <hr />
+        </>
+      )}
       <hr />
       {dataSheet.leader && (
         <>

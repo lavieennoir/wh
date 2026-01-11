@@ -103,6 +103,73 @@ const wargearOptionSchema = z.object({
   ),
 });
 
+const valueOverrideSchema = z.object({
+  value: z.number().or(z.string()),
+  modifier: z
+    .string()
+    .refine((modifier) => modifier === 'set' || modifier === 'add' || modifier === 'subtract', {
+      message: 'Modifier must be either "set" or "modify"',
+    }),
+});
+
+const demonicAllegianceSchema = z.object({
+  // Optional name of the unit with current demonic allegiance
+  name: z.string().optional(),
+  // Allows to add new wargear options
+  wargearOptions: z.array(wargearOptionSchema).optional(),
+  overrides: z
+    .object({
+      // Allows to update only specific fields of the stats
+      stats: z
+        .object({
+          movement: valueOverrideSchema.optional(),
+          toughness: valueOverrideSchema.optional(),
+          save: valueOverrideSchema.optional(),
+          wounds: valueOverrideSchema.optional(),
+          leadership: valueOverrideSchema.optional(),
+          objectiveControl: valueOverrideSchema.optional(),
+          invulnerableSave: valueOverrideSchema.optional(),
+        } satisfies Record<keyof Stats, unknown>)
+        .optional(),
+      // Allows to update only specific fields of the ranged and melee weapons
+      rangedWeapons: z
+        .array(
+          z.object({
+            name: z.string(),
+            range: valueOverrideSchema.optional(),
+            attacks: valueOverrideSchema.optional(),
+            ballisticSkill: valueOverrideSchema.optional(),
+            strength: valueOverrideSchema.optional(),
+            armourPenetration: valueOverrideSchema.optional(),
+            damage: valueOverrideSchema.optional(),
+            abilities: z
+              .array(
+                z.object({
+                  name: z.string(),
+                  description: z.string(),
+                }),
+              )
+              .optional(),
+          } satisfies Record<keyof RangedWeapon, unknown>),
+        )
+        .optional(),
+      meleeWeapons: z
+        .array(
+          z.object({
+            name: z.string(),
+            attacks: valueOverrideSchema.optional(),
+            weaponSkill: valueOverrideSchema.optional(),
+            strength: valueOverrideSchema.optional(),
+            armourPenetration: valueOverrideSchema.optional(),
+            damage: valueOverrideSchema.optional(),
+            abilities: z.array(valueOverrideSchema).optional(),
+          } satisfies Record<keyof MeleeWeapon, unknown>),
+        )
+        .optional(),
+    })
+    .optional(),
+});
+
 export const dataSheetValidationSchema = z.object({
   updatedAt: z.string(),
   slug: z.string(),
@@ -123,6 +190,15 @@ export const dataSheetValidationSchema = z.object({
   wargearAbilities: z.array(wargearAbilitySchema).optional(),
   wargearOptions: z.array(wargearOptionSchema).optional(),
   supremeCommander: z.string().optional(),
+  // Legiones Daemonica only option for units that can be played for different chaos gods
+  demonicAllegiance: z
+    .object({
+      khorne: demonicAllegianceSchema.optional(),
+      tzeentch: demonicAllegianceSchema.optional(),
+      nurgle: demonicAllegianceSchema.optional(),
+      slaanesh: demonicAllegianceSchema.optional(),
+    })
+    .optional(),
 });
 
 export const dataSheetArrayValidationSchema = z.array(dataSheetValidationSchema);
@@ -135,3 +211,5 @@ export type Stats = z.infer<typeof statsSchema>;
 export type UnitComposition = z.infer<typeof unitCompositionSchema>;
 export type WargearAbility = z.infer<typeof wargearAbilitySchema>;
 export type WargearOption = z.infer<typeof wargearOptionSchema>;
+export type DemonicAllegiance = z.infer<typeof demonicAllegianceSchema>;
+export type ValueOverride = z.infer<typeof valueOverrideSchema>;
