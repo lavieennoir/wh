@@ -1,16 +1,28 @@
 import ChevronRightIcon from '@/public/icons/chevron-right.svg';
-import Link from 'next/link';
+import clsx from 'clsx';
+import Link, { LinkProps } from 'next/link';
 
-export interface ListItemLinkProps {
-  href: string;
+export interface ListItemLinkProps extends LinkProps {
   children: React.ReactNode;
+  icon?: React.ReactNode;
+  className?: string;
 }
 
-export default function ListItemLink({ href, children }: ListItemLinkProps) {
+export default function ListItemLink({
+  href,
+  children,
+  icon,
+  className,
+  ...props
+}: ListItemLinkProps) {
   return (
-    <Link href={href} className="btn btn-lg flex flex-row items-center justify-between">
+    <Link
+      {...props}
+      href={href}
+      className={clsx('btn btn-lg flex flex-row items-center justify-between', className)}
+    >
       <p className="truncate">{children}</p>
-      <ChevronRightIcon className="size-4" />
+      {icon ?? <ChevronRightIcon className="size-4" />}
     </Link>
   );
 }

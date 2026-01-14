@@ -1,3 +1,4 @@
+'use client';
 import { useRosterFromUrl } from '@/src/hooks/useRosterFromUrl';
 import { notFound } from 'next/navigation';
 import RosterForm from './RosterForm';
@@ -10,5 +11,5 @@ export default function EditRoster() {
   if (!roster) {
     return notFound();
   }
-  return <RosterForm id={roster.id} defaultValues={roster} />;
+  return <RosterForm id={roster.id} defaultValues={roster} submitButtonContent="Update" />;
 }

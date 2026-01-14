@@ -5,8 +5,8 @@ import { armyDetachments } from '@/src/lib/detachments';
 import { kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { ChangeEvent, useCallback, useMemo, useState } from 'react';
-import { FieldError, SubmitHandler, useForm } from 'react-hook-form';
+import { useEffect, useMemo } from 'react';
+import { FieldError, SubmitHandler, useForm, useWatch } from 'react-hook-form';
 import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
 import FormInput from '../common/inputs/FormInput';
@@ -17,6 +17,7 @@ import DetachmentCard from './DetachmentCard';
 export interface RosterFormProps {
   id?: string;
   defaultValues?: RosterFormInput;
+  submitButtonContent?: React.ReactNode;
 }
 
 export const rosterFormSchema = z.object({
@@ -48,20 +49,29 @@ const pointsOptions: FormSelectOption[] = [
   { label: 'Onslaught - 3000 Points', value: '3000' },
 ];
 
-export default function RosterForm({ id, defaultValues }: RosterFormProps) {
+export default function RosterForm({
+  id,
+  defaultValues,
+  submitButtonContent = 'Create',
+}: RosterFormProps) {
   const shortRosterList = useShortRosterList();
   const router = useRouter();
 
-  const [detachmentOptions, setDetachmentOptions] = useState<FormSelectOption[]>([]);
   const {
     register,
     handleSubmit,
     setValue,
     trigger,
-    formState: { errors },
+    control,
+    formState: { errors, touchedFields, submitCount },
   } = useForm<RosterFormInput>({
     resolver: zodResolver(rosterFormSchema),
     defaultValues,
+  });
+
+  const armyValue = useWatch({
+    control,
+    name: 'army',
   });
 
   const onSubmit: SubmitHandler<RosterFormOutput> = (data) => {
@@ -74,37 +84,25 @@ export default function RosterForm({ id, defaultValues }: RosterFormProps) {
     router.push(`/rosters/details?rosterId=${encodeURIComponent(rosterId)}`);
   };
 
-  const handleArmyChange = useCallback(
-    (value: Army) => {
-      const detachments = value
-        ? armyDetachments[value].map((detachment) => ({
-            label: (
-              <DetachmentCard
-                name="detachment"
-                detachment={detachment}
-                defaultArmyFaction={defaultArmyFactions[value]}
-              />
-            ),
-            value: detachment.slug,
-          }))
-        : [];
-      setDetachmentOptions(detachments);
-      setValue('detachmentName', detachments[0]?.value ?? '');
-      trigger('detachmentName');
-    },
-    [setValue, trigger],
+  const detachmentOptions = useMemo<FormSelectOption[]>(
+    () =>
+      armyDetachments[armyValue]?.map((detachment) => ({
+        label: (
+          <DetachmentCard
+            name="detachment"
+            detachment={detachment}
+            defaultArmyFaction={defaultArmyFactions[armyValue]}
+          />
+        ),
+        value: detachment.slug,
+      })) ?? [],
+    [armyValue],
   );
 
-  const registerArmy = useMemo(() => {
-    const result = register('army');
-    return {
-      ...result,
-      onChange: (value: ChangeEvent<HTMLSelectElement>) => {
-        result.onChange(value);
-        handleArmyChange(value.target.value as Army);
-      },
-    };
-  }, [register, handleArmyChange]);
+  useEffect(() => {
+    setValue('detachmentName', detachmentOptions[0]?.value ?? '');
+    trigger('detachmentName');
+  }, [detachmentOptions, setValue, trigger]);
 
   return (
     <form
@@ -125,7 +123,7 @@ export default function RosterForm({ id, defaultValues }: RosterFormProps) {
           emptyOptionLabel="Select an army"
           options={armyOptions}
           error={errors.army}
-          {...registerArmy}
+          {...register('army')}
         />
       </div>
       <div className="col-span-full sm:col-span-1">
@@ -142,7 +140,9 @@ export default function RosterForm({ id, defaultValues }: RosterFormProps) {
         <FormSelectList
           options={detachmentOptions}
           defaultValue={detachmentOptions[0]?.value}
-          error={errors.detachmentName}
+          error={
+            touchedFields.detachmentName || submitCount > 0 ? errors.detachmentName : undefined
+          }
           emptyOptionLabel={
             detachmentOptions.length === 0 ? (
               <div className="btn w-full h-12 bg-base-300 justify-start">
@@ -154,7 +154,7 @@ export default function RosterForm({ id, defaultValues }: RosterFormProps) {
         />
       </div>
       <button type="submit" className="btn btn-primary col-span-full">
-        Create
+        {submitButtonContent}
       </button>
     </form>
   );

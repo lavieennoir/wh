@@ -16,7 +16,7 @@ export const useShortRosterList = () => {
 
   const addRoster = useCallback(
     (roster: ShortRoster) => {
-      setRosters((prev) => [...prev, roster]);
+      setRosters((prev) => [roster, ...prev]);
       // Also create the empty roster details in localStorage
       localStorage.setItem(
         buildRosterKey(roster.id),

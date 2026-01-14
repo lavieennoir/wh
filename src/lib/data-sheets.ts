@@ -13,3 +13,16 @@ export const armyDataSheets: Record<Army, DataSheet[]> = {
     deathGuardDataSheets satisfies DataSheet[],
   ),
 };
+
+export const armyDataSheetBySlugMaps: Record<
+  string,
+  Record<string, DataSheet>
+> = Object.fromEntries(
+  Object.entries(armyDataSheets).map(
+    ([army, dataSheets]) =>
+      [
+        army,
+        Object.fromEntries(dataSheets.map((dataSheet) => [dataSheet.slug, dataSheet] as const)),
+      ] as const,
+  ),
+);

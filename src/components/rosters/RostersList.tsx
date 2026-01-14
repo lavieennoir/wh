@@ -1,17 +1,14 @@
 'use client';
+import EllipsisVerticalIcon from '@/public/icons/ellipsis-vertical.svg';
 import InformationCircleIcon from '@/public/icons/information-circle.svg';
 import { useShortRosterList } from '@/src/hooks/useRostersList';
 import { kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { Popover } from '../common/Popover';
+import RosterMenu from './RosterMenu';
 
 export default function RosterList() {
   const { rosters } = useShortRosterList();
-  const router = useRouter();
-
-  const handleEditRoster = (id: string) => (event: React.MouseEvent<HTMLButtonElement>) => {
-    router.push(`/rosters/edit?rosterId=${encodeURIComponent(id)}`);
-  };
 
   if (rosters.length === 0) {
     return (
@@ -31,20 +28,36 @@ export default function RosterList() {
   }
 
   return (
-    <ul className="flex flex-col gap-2">
+    <ul className="flex flex-col gap-2 pb-18">
       {rosters.map((roster) => (
         <li key={roster.id}>
           <Link
             href={`/rosters/details?rosterId=${encodeURIComponent(roster.id)}`}
-            className="btn flex h-24 p-4 justify-between items-start"
+            className="p-0 btn flex h-24 justify-between items-stretch"
+            data-roster-id={roster.id}
           >
-            <div className="text-left shrink-0 max-w-2/3 sm:max-w-3/4">
+            <div className="p-3 flex flex-col justify-between text-left shrink-0 max-w-2/3 sm:max-w-3/4">
               <p className="truncate text-lg pl-2.75 mb-2">{roster.name}</p>
               <p className="badge badge-soft">{roster.points} points</p>
             </div>
             <div className="text-sm text capitalize text-right truncate">
-              <p>{kebabCaseToTitleCase(roster.army)}</p>
-              <p>{kebabCaseToTitleCase(roster.detachmentName)}</p>
+              <Popover
+                className="menu bg-base-200 rounded-box shadow-xl"
+                component="ul"
+                popoverContent={<RosterMenu roster={roster} />}
+                aria-label="Roster actions"
+                onClick={(e) => e.preventDefault()}
+              >
+                <button
+                  type="button"
+                  className="btn btn-circle btn-ghost"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <EllipsisVerticalIcon className="size-4" />
+                </button>
+              </Popover>
+              <p className="pr-3">{kebabCaseToTitleCase(roster.army)}</p>
+              <p className="pr-3 pb-3">{kebabCaseToTitleCase(roster.detachmentName)}</p>
             </div>
           </Link>
         </li>
