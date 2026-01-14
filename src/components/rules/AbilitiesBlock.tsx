@@ -1,8 +1,7 @@
 'use client';
 import { Ability } from '@/src/schemas/data-sheet.schema';
-import { Fragment } from 'react/jsx-runtime';
-import Markdown from '../common/Markdown';
 import { useExpandAllUnitsByDefault } from '../settings/ExpandAllUnitsByDefaultControl';
+import AbilitiesBlockContent from './AbilitiesBlockContent';
 
 export interface AbilitiesBlockProps {
   name: string;
@@ -23,29 +22,7 @@ export default function AbilitiesBlock({ name, description, abilities }: Abiliti
         <h2 className="truncate">{name}</h2>
       </summary>
       <div className="collapse-content flex flex-col gap-4 py-2 px-0 *:px-4 [&>table]:px-0">
-        <Markdown>{description}</Markdown>
-        {abilities && (
-          <div className="flex flex-col gap-4">
-            {abilities.map((ability) => (
-              <Fragment key={ability.name}>
-                <h2>{ability.name}</h2>
-                <Markdown>{ability.description}</Markdown>
-                {ability.subAbilities && (
-                  <div className="flex flex-col gap-2">
-                    {ability.subAbilities.map((subAbility) => (
-                      <Fragment key={subAbility.name}>
-                        <span className="badge badge-base-content font-bold">
-                          {subAbility.name}
-                        </span>
-                        <Markdown>{subAbility.description}</Markdown>
-                      </Fragment>
-                    ))}
-                  </div>
-                )}
-              </Fragment>
-            ))}
-          </div>
-        )}
+        <AbilitiesBlockContent description={description} abilities={abilities} />
       </div>
     </details>
   );
