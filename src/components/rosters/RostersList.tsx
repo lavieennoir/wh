@@ -4,11 +4,13 @@ import InformationCircleIcon from '@/public/icons/information-circle.svg';
 import { useShortRosterList } from '@/src/hooks/useRostersList';
 import { kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Popover } from '../common/Popover';
 import RosterMenu from './RosterMenu';
 
 export default function RosterList() {
-  const { rosters } = useShortRosterList();
+  const router = useRouter();
+  const { rosters, removeRoster, addRoster } = useShortRosterList();
 
   if (rosters.length === 0) {
     return (
@@ -44,7 +46,14 @@ export default function RosterList() {
               <Popover
                 className="menu bg-base-200 rounded-box shadow-xl"
                 component="ul"
-                popoverContent={<RosterMenu roster={roster} />}
+                popoverContent={
+                  <RosterMenu
+                    roster={roster}
+                    removeRoster={removeRoster}
+                    addRoster={addRoster}
+                    onDeleteClick={() => router.push('/rosters')}
+                  />
+                }
                 aria-label="Roster actions"
                 onClick={(e) => e.preventDefault()}
               >

@@ -1,11 +1,14 @@
+import EllipsisVerticalIcon from '@/public/icons/ellipsis-vertical.svg';
 import { ShortRoster } from '@/src/hooks/useRostersList';
 import { armyDataSheetBySlugMaps } from '@/src/lib/data-sheets';
-import { computeUnitsPoints, RosterUnitType } from '@/src/lib/roster';
+import { computeUnitsPoints, copyRosterUnit, RosterUnitType } from '@/src/lib/roster';
 import { kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { DataSheet } from '@/src/schemas/data-sheet.schema';
 import { RosterDetails } from '@/src/schemas/roster.schema';
+import clsx from 'clsx';
 import Link from 'next/link';
-import { SetStateAction } from 'react';
+import { Fragment, SetStateAction } from 'react';
+import { Popover } from '../common/Popover';
 
 export interface RosterUnitsSectionProps {
   roster: ShortRoster & RosterDetails;
@@ -26,11 +29,40 @@ export default function RosterUnitsSection({
   });
   const pointsUsed = computeUnitsPoints(unistOfType);
 
+  const handleDeleteUnit = (unitId: string) => () => {
+    setRosterDetails((prev) => {
+      if (!prev) {
+        return prev;
+      }
+      return { ...prev, units: prev.units.filter((u) => u.id !== unitId) };
+    });
+  };
+
+  const handleDuplicateUnit = (unitId: string) => () => {
+    setRosterDetails((prev) => {
+      if (!prev) {
+        return prev;
+      }
+
+      const unitIdx = prev.units.findIndex((u) => u.id === unitId);
+      if (unitIdx === -1) {
+        return prev;
+      }
+      const newUnits = [
+        ...prev.units.slice(0, unitIdx),
+        copyRosterUnit(prev.units[unitIdx]),
+        ...prev.units.slice(unitIdx),
+      ];
+      return { ...prev, units: newUnits };
+    });
+  };
   return (
     <div>
-      <div className="flex justify-between items-center bg-base-content text-base-300 p-2">
-        <h2 className="text-lg font-bold capitalize">{kebabCaseToTitleCase(type)}</h2>
-        <span className={pointsUsed > 0 ? 'visible' : 'invisible'}>{pointsUsed} Points</span>
+      <div className="flex justify-between items-center bg-base-content text-base-300 gap-2 p-2">
+        <h2 className="text-lg font-bold capitalize mr-auto">{kebabCaseToTitleCase(type)}</h2>
+        <span className={clsx(pointsUsed > 0 ? 'visible' : 'invisible', 'text-sm font-bold px-4')}>
+          {pointsUsed} Points
+        </span>
         <Link
           href={`/rosters/add-unit/${type}?rosterId=${roster.id}`}
           className="btn btn-sm btn-outline"
@@ -38,12 +70,56 @@ export default function RosterUnitsSection({
           +
         </Link>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div>
         {unistOfType.map((unit) => (
-          <div key={unit.id} className="card">
-            <span>{unit.name}</span>
-            <span>{unit.points} Points</span>
-          </div>
+          <Fragment key={unit.id}>
+            <Link
+              href={`/rosters/edit-unit?rosterId=${encodeURIComponent(
+                roster.id,
+              )}&unitId=${encodeURIComponent(unit.id)}`}
+              key={unit.id}
+              role="button"
+              className="w-full grid grid-cols-[1fr_auto_auto] grid-rows-[auto_1fr] gap-2 p-2 pr-1 pt-1 min-h-36 border border-t-0 border-base-300"
+            >
+              <h3 className="font-bold text-left pt-1">{unit.name}</h3>
+              <span className="pt-1">
+                <span className="badge badge-info font-bold">{unit.points} Points</span>
+              </span>
+              <ul className="col-span-2 list-disc list-inside text-left">
+                <li>Wargear option 1</li>
+                <li>Wargear option 2</li>
+                <li>Wargear option 2</li>
+              </ul>
+              <Popover
+                className="menu bg-base-200 rounded-box shadow-xl"
+                component="ul"
+                aria-label="Unit actions"
+                onClick={(e) => e.preventDefault()}
+                popoverContent={
+                  <>
+                    <li>
+                      <button type="button" onClick={handleDeleteUnit(unit.id)}>
+                        Delete
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" onClick={handleDuplicateUnit(unit.id)}>
+                        Duplicate
+                      </button>
+                    </li>
+                  </>
+                }
+              >
+                <button
+                  type="button"
+                  className="row-start-1 col-start-3 row-span-2 btn btn-circle btn-ghost"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <EllipsisVerticalIcon className="size-6" />
+                </button>
+              </Popover>
+            </Link>
+          </Fragment>
         ))}
       </div>
     </div>

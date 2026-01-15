@@ -12,6 +12,29 @@ export enum RosterUnitType {
 
 export const buildRosterKey = (id: string) => `roster:${id}`;
 
+export const cloneRosterDetails = (fromId: string, toId: string): void => {
+  const fromRosterDetails = localStorage.getItem(buildRosterKey(fromId));
+  if (!fromRosterDetails) {
+    return;
+  }
+  try {
+    const roster = JSON.parse(fromRosterDetails) as RosterDetails;
+    roster.id = toId;
+    localStorage.setItem(buildRosterKey(toId), JSON.stringify(roster));
+  } catch (error) {
+    console.error(`Error cloning roster details from ${fromId} to ${toId}:`, error);
+  }
+};
+
+export const copyRosterUnit = (
+  unit: RosterDetails['units'][number],
+): RosterDetails['units'][number] => {
+  return {
+    ...unit,
+    id: uuidv4(),
+  };
+};
+
 export const createEmptyRosterDetails = (id: string): RosterDetails => {
   // TODO
   return {

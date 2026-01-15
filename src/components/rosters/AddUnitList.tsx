@@ -5,9 +5,11 @@ import { rosterFilterUnitsBySection, RosterUnitType } from '@/src/lib/roster';
 import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { DataSheet } from '@/src/schemas/data-sheet.schema';
 import { notFound, useRouter } from 'next/navigation';
+import { Fragment } from 'react/jsx-runtime';
 import ComingSoonAlert from '../common/ComingSoonAlert';
 import ListItemLink from '../common/ListItemLink';
 import Navbar from '../layout/Navbar';
+import RosterValidationAlert from './RosterValidationAlert';
 
 export interface AddUnitListProps {
   type: RosterUnitType;
@@ -49,27 +51,33 @@ export default function AddUnitList({ type }: AddUnitListProps) {
               <ComingSoonAlert subtitle="Datasheets are not yet available" />
             )}
             {dataSheets.map((dataSheet) => (
-              <li key={dataSheet.slug}>
-                <ListItemLink
-                  className="h-auto py-2"
-                  href={`/${roster.army}/datasheets/${dataSheet.slug}`}
-                  icon={
-                    <div className="flex flex-col items-center gap-2">
-                      <button className="btn btn-outline btn-sm" onClick={handleAddUnit(dataSheet)}>
-                        +
-                      </button>
-                      <div className="badge badge-soft badge-info">
-                        {dataSheet.unitComposition.cost[0]?.points ?? 'N/A'} Points
+              <Fragment key={dataSheet.slug}>
+                <li>
+                  <ListItemLink
+                    className="h-auto py-2"
+                    href={`/${roster.army}/datasheets/${dataSheet.slug}`}
+                    icon={
+                      <div className="flex flex-col items-center gap-2">
+                        <button
+                          className="btn btn-outline btn-sm"
+                          onClick={handleAddUnit(dataSheet)}
+                        >
+                          +
+                        </button>
+                        <div className="badge badge-soft badge-info">
+                          {dataSheet.unitComposition.cost[0]?.points ?? 'N/A'} Points
+                        </div>
                       </div>
-                    </div>
-                  }
-                >
-                  {dataSheet.name}
-                </ListItemLink>
-              </li>
+                    }
+                  >
+                    {dataSheet.name}
+                  </ListItemLink>
+                </li>
+              </Fragment>
             ))}
           </ul>
         )}
+        <RosterValidationAlert roster={roster} />
       </main>
     </>
   );

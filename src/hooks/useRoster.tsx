@@ -42,5 +42,5 @@ export const useRoster = (id: string) => {
     [setRosterDetails],
   );
 
-  return { roster, addUnit, setRosterDetails };
+  return { ...shortRosterList, roster, addUnit, setRosterDetails };
 };

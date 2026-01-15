@@ -1,6 +1,6 @@
-import { ShortRoster, useShortRosterList } from '@/src/hooks/useRostersList';
+import { ShortRoster } from '@/src/hooks/useRostersList';
+import { cloneRosterDetails } from '@/src/lib/roster';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface RosterMenuProps {
@@ -9,33 +9,26 @@ export interface RosterMenuProps {
   onEditClick?: (roster: ShortRoster) => void;
   onDuplicateClick?: (roster: ShortRoster) => void;
   onDeleteClick?: (id: string) => void;
+  removeRoster: (id: string) => void;
+  addRoster: (roster: ShortRoster) => void;
 }
 
 const defaultEnabledOptions: RosterMenuProps['enabledOptions'] = ['edit', 'duplicate', 'delete'];
 export default function RosterMenu({
   roster,
-
   enabledOptions = defaultEnabledOptions,
   onEditClick,
   onDuplicateClick,
   onDeleteClick,
+  removeRoster,
+  addRoster,
 }: RosterMenuProps) {
-  const { rosters, addRoster, removeRoster } = useShortRosterList();
-  const isMounted = useRef(true);
-
-  useEffect(() => {
-    return () => {
-      isMounted.current = false;
-    };
-  }, []);
-
-  const handleDeleteRoster = (id: string) => () => {
-    removeRoster(id);
-    onDeleteClick?.(id);
+  const handleDeleteRoster = () => {
+    removeRoster(roster.id);
+    onDeleteClick?.(roster.id);
   };
 
-  const handleDuplicateRoster = (id: string) => () => {
-    const roster = rosters.find((roster) => roster.id === id);
+  const handleDuplicateRoster = () => {
     const newRosterId = uuidv4();
     if (!roster) {
       return;
@@ -46,6 +39,8 @@ export default function RosterMenu({
       id: newRosterId,
       name: `${roster.name} (Copy)`,
     });
+
+    cloneRosterDetails(roster.id, newRosterId);
 
     onDuplicateClick?.(roster);
 
@@ -59,15 +54,9 @@ export default function RosterMenu({
         return;
       }
 
-      if (!isMounted.current) {
-        return;
-      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
 
       setTimeout(() => {
-        if (!isMounted.current) {
-          return;
-        }
         // contentEditable is a hack to apply focus-visible to the 'a' element
         (rosterElement as HTMLElement as HTMLInputElement).contentEditable = 'true';
         rosterElement.focus();
@@ -90,14 +79,14 @@ export default function RosterMenu({
       )}
       {enabledOptions?.includes('duplicate') && (
         <li>
-          <button type="button" onClick={handleDuplicateRoster(roster.id)}>
+          <button type="button" onClick={handleDuplicateRoster}>
             Duplicate Roster
           </button>
         </li>
       )}
       {enabledOptions?.includes('delete') && (
         <li>
-          <button type="button" onClick={handleDeleteRoster(roster.id)}>
+          <button type="button" onClick={handleDeleteRoster}>
             Delete
           </button>
         </li>

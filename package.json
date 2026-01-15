@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "PORT=3001 next dev",
     "build": "next build && npm run generate-sw",
     "build:next": "next build",
     "generate-sw": "node scripts/generate-sw-manifest.mjs",

@@ -15,7 +15,7 @@ const enabledRosterMenuOptions: RosterMenuProps['enabledOptions'] = ['edit', 'de
 
 export default function RosterDetails() {
   const router = useRouter();
-  const { roster, isLoading, setRosterDetails } = useFullRosterFromUrl();
+  const { roster, isLoading, setRosterDetails, addRoster, removeRoster } = useFullRosterFromUrl();
 
   if (isLoading) {
     return null;
@@ -41,6 +41,8 @@ export default function RosterDetails() {
               popoverContent={
                 <RosterMenu
                   roster={roster}
+                  removeRoster={removeRoster}
+                  addRoster={addRoster}
                   enabledOptions={enabledRosterMenuOptions}
                   onDeleteClick={() => router.push('/rosters')}
                 />
