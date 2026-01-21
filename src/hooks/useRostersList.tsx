@@ -20,7 +20,7 @@ export const useShortRosterList = () => {
       // Also create the empty roster details in localStorage
       localStorage.setItem(
         buildRosterKey(roster.id),
-        JSON.stringify(createEmptyRosterDetails(roster.id)),
+        JSON.stringify(createEmptyRosterDetails(roster.id, roster)),
       );
     },
     [setRosters],

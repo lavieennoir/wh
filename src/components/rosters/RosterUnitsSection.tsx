@@ -1,8 +1,8 @@
 import EllipsisVerticalIcon from '@/public/icons/ellipsis-vertical.svg';
 import { ShortRoster } from '@/src/hooks/useRostersList';
 import { armyDataSheetBySlugMaps } from '@/src/lib/data-sheets';
-import { computeUnitsPoints, copyRosterUnit, RosterUnitType } from '@/src/lib/roster';
-import { kebabCaseToTitleCase } from '@/src/lib/string.utils';
+import { computeUnitsPoints, copyRosterUnit, getUnitCost, RosterUnitType } from '@/src/lib/roster';
+import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import { DataSheet } from '@/src/schemas/data-sheet.schema';
 import { RosterDetails } from '@/src/schemas/roster.schema';
 import clsx from 'clsx';
@@ -27,7 +27,7 @@ export default function RosterUnitsSection({
     const dataSheet = armyDataSheetBySlugMaps[roster.army]?.[u.dataSheetSlug];
     return dataSheet && filter(dataSheet);
   });
-  const pointsUsed = computeUnitsPoints(unistOfType);
+  const pointsUsed = computeUnitsPoints(unistOfType, roster.army);
 
   const handleDeleteUnit = (unitId: string) => () => {
     setRosterDetails((prev) => {
@@ -81,14 +81,48 @@ export default function RosterUnitsSection({
               role="button"
               className="w-full grid grid-cols-[1fr_auto_auto] grid-rows-[auto_1fr] gap-2 p-2 pr-1 pt-1 min-h-36 border border-t-0 border-base-300"
             >
-              <h3 className="font-bold text-left pt-1">{unit.name}</h3>
+              <h3 className="font-bold text-left pt-1 flex flex-col">
+                {unit.models.some((model) => model.isWarlord) && (
+                  <span className="badge badge-info font-bold">Warlord</span>
+                )}
+                {unit.name}
+              </h3>
               <span className="pt-1">
-                <span className="badge badge-info font-bold">{unit.points} Points</span>
+                <span className="badge badge-info font-bold">
+                  {armyDataSheetBySlugMaps[roster.army]?.[unit.dataSheetSlug]?.unitComposition
+                    ? getUnitCost(
+                        unit,
+                        armyDataSheetBySlugMaps[roster.army]?.[unit.dataSheetSlug]?.unitComposition,
+                      )
+                    : 0}{' '}
+                  Points
+                </span>
               </span>
               <ul className="col-span-2 list-disc list-inside text-left">
-                <li>Wargear option 1</li>
-                <li>Wargear option 2</li>
-                <li>Wargear option 2</li>
+                {unit.models.length > 1 ? (
+                  unit.models.map((model) => (
+                    <Fragment key={model.name}>
+                      <li key={model.name}>
+                        {model.amount} x {model.name}
+                      </li>
+                      <ul className="list-[circle] list-inside pl-6">
+                        {model.wargear.map((wargear) => (
+                          <li key={wargear.name}>
+                            {wargear.amount} x {capitalize(wargear.name)}
+                          </li>
+                        ))}
+                      </ul>
+                    </Fragment>
+                  ))
+                ) : (
+                  <ul className="list-disc list-inside">
+                    {unit.models[0].wargear.map((wargear) => (
+                      <li key={wargear.name}>
+                        {wargear.amount} x {capitalize(wargear.name)}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </ul>
               <Popover
                 className="menu bg-base-200 rounded-box shadow-xl"

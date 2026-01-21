@@ -758,6 +758,70 @@
     "factionAbility": "The Shadow of Chaos"
   },
   {
+    "updatedAt": "2026-01-21",
+    "slug": "scarbrand",
+    "name": "Scarbrand",
+    "baseSize": "100mm",
+    "keywords": ["Monster", "Character", "Epic Hero", "Chaos", "Daemon", "Khorne", "Scarbrand"],
+    "factionKeywords": ["Legiones Daemonica"],
+    "unitComposition": {
+      "equipment": ["Bellow of endless fury", "Slaughter and Carnage"],
+      "models": [{ "model": "Scarbrand", "minCount": 1, "maxCount": 1 }],
+      "cost": [{ "points": 305, "models": { "Scarbrand": { "minCount": 1, "maxCount": 1 } } }]
+    },
+    "stats": {
+      "movement": 10,
+      "toughness": 11,
+      "save": 3,
+      "wounds": 20,
+      "leadership": 6,
+      "objectiveControl": 5,
+      "invulnerableSave": 4
+    },
+    "abilities": [
+      {
+        "name": "Greater Daemon of Khorne (Aura)",
+        "description": "While a friendly **Khorne** **Legiones Daemonica** unit is within 6\" of this model, that unit is within your army's Shadow of Chaos."
+      },
+      {
+        "name": "Rage Embodied (Aura)",
+        "description": "While a friendly **Khorne** **Legiones Daemonica** unit is within 6\" of this model, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit."
+      }
+    ],
+    "rangedWeapons": [
+      {
+        "name": "Bellow of endless fury",
+        "range": 12,
+        "attacks": "2D6",
+        "ballisticSkill": null,
+        "strength": 8,
+        "armourPenetration": -1,
+        "damage": "1",
+        "abilities": ["Ignores Cover", "Torrent"]
+      }
+    ],
+    "meleeWeapons": [
+      {
+        "name": "Slaughter and Carnage - strike",
+        "attacks": "8",
+        "weaponSkill": 2,
+        "strength": 16,
+        "armourPenetration": -4,
+        "damage": "6"
+      },
+      {
+        "name": "Slaughter and Carnage - sweep",
+        "attacks": "16",
+        "weaponSkill": 2,
+        "strength": 8,
+        "armourPenetration": -2,
+        "damage": "2"
+      }
+    ],
+    "coreAbilities": ["Deadly Demise D6", "Deep Strike"],
+    "factionAbility": "The Shadow of Chaos"
+  },
+  {
     "updatedAt": "2026-01-11",
     "slug": "skull-cannon",
     "name": "Skull Cannon",
@@ -765,7 +829,7 @@
     "keywords": ["Mounted", "Chaos", "Daemon", "Khorne", "Skull Cannon"],
     "factionKeywords": ["Legiones Daemonica"],
     "unitComposition": {
-      "equipment": ["skull cannon", "attendants' hellblades", "biting maw"],
+      "equipment": ["Skull cannon", "Attendants' hellblades", "Biting maw"],
       "models": [{ "model": "Skull Cannon", "minCount": 1, "maxCount": 1 }],
       "cost": [{ "points": 95, "models": { "Skull Cannon": { "minCount": 1, "maxCount": 1 } } }]
     },
