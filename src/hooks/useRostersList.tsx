@@ -1,13 +1,11 @@
 import { useCallback } from 'react';
-import { Army } from '../lib/army';
 import { buildRosterKey, createEmptyRosterDetails } from '../lib/roster';
+import { RosterDetails } from '../schemas/roster.schema';
 import { useLocalStorageValue } from './useLocalStorageValue';
 
-export interface ShortRoster {
+export interface ShortRoster extends Pick<RosterDetails, 'army' | 'points'> {
   id: string;
   name: string;
-  army: Army;
-  points: number;
   detachmentName: string;
 }
 
