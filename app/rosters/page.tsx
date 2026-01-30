@@ -1,3 +1,4 @@
+import { PwaInstallAlert } from '@/src/components/common/PwaInstallAlert';
 import Navbar from '@/src/components/layout/Navbar';
 import RosterList from '@/src/components/rosters/RostersList';
 import { Metadata } from 'next';
@@ -12,6 +13,7 @@ export default function RosterPage() {
     <>
       <Navbar title="Rosters" hideBackButton />
       <main className="p-2 pb-16">
+        <PwaInstallAlert className="mb-4" />
         <RosterList />
         <div className="fab bottom-20">
           <Link

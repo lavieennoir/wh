@@ -1,4 +1,5 @@
 import ListItemLink from '@/src/components/common/ListItemLink';
+import { PwaInstallAlert } from '@/src/components/common/PwaInstallAlert';
 import Navbar from '@/src/components/layout/Navbar';
 import Navigation from '@/src/components/layout/Navigation';
 import { Army } from '@/src/lib/army';
@@ -16,6 +17,7 @@ export default function Home() {
     <>
       <Navbar title="Armies" hideBackButton />
       <main className="p-2 pb-16">
+        <PwaInstallAlert className="mb-4" />
         <ul className="list gap-2">
           {armies.map((army) => (
             <li key={army}>
