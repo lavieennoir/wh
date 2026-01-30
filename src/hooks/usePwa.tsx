@@ -29,7 +29,7 @@ export const usePwa = () => {
     setTimeout(() => {
       // wait for handleBeforeInstallPrompt. We are not sure if it will be called, so just wait a bit.
       setIsLoading(false);
-    }, 100);
+    }, 500);
 
     window.matchMedia('(display-mode: standalone)').addEventListener('change', handleChange);
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);

@@ -1,18 +1,16 @@
 'use client';
 import { usePwa } from '@/src/hooks/usePwa';
 import clsx from 'clsx';
+import EnterAnimation, { EnterAnimationProps } from './animation/EnterAnimation';
 
-export function PwaInstallAlert({
-  className,
-  ...props
-}: Omit<React.HTMLAttributes<HTMLDivElement>, 'role'>) {
+export function PwaInstallAlert({ className, ...props }: Omit<EnterAnimationProps, 'role'>) {
   const { canInstall, onInstall, isInstalled, isLoading, isPersistenceEnabled } = usePwa();
 
   if (isLoading) return null;
 
   if (!isInstalled) {
     return (
-      <div
+      <EnterAnimation
         role="alert"
         {...props}
         className={clsx('alert alert-info alert-outline flex flex-col md:flex-row', className)}
@@ -40,14 +38,17 @@ export function PwaInstallAlert({
         ) : (
           <span>Install the app by adding it to your home screen.</span>
         )}
-      </div>
+      </EnterAnimation>
     );
   }
 
   // App is installed but persistence is not enabled
   if (!isPersistenceEnabled) {
     return (
-      <div role="alert" className="alert alert-warning alert-outline flex flex-col md:flex-row">
+      <EnterAnimation
+        role="alert"
+        className="alert alert-warning alert-outline flex flex-col md:flex-row"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 shrink-0 stroke-current"
@@ -65,7 +66,7 @@ export function PwaInstallAlert({
           We are not able to ensure data persistence on this device. Please enable persistence in
           your browser settings or reinstall the app.
         </span>
-      </div>
+      </EnterAnimation>
     );
   }
 
