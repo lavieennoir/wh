@@ -1,6 +1,7 @@
 'use client';
 import EllipsisVerticalIcon from '@/public/icons/ellipsis-vertical.svg';
 import InformationCircleIcon from '@/public/icons/information-circle.svg';
+import { useMount } from '@/src/hooks/useMount';
 import { useShortRosterList } from '@/src/hooks/useRostersList';
 import { kebabCaseToTitleCase } from '@/src/lib/string.utils';
 import Link from 'next/link';
@@ -11,6 +12,10 @@ import RosterMenu from './RosterMenu';
 export default function RosterList() {
   const router = useRouter();
   const { rosters, removeRoster, addRoster } = useShortRosterList();
+  const isMounted = useMount();
+
+  // prevent flickering on initial load
+  if (!isMounted) return null;
 
   if (rosters.length === 0) {
     return (

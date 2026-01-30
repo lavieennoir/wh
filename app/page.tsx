@@ -1,9 +1,7 @@
-import ListItemLink from '@/src/components/common/ListItemLink';
 import { PwaInstallAlert } from '@/src/components/common/PwaInstallAlert';
 import Navbar from '@/src/components/layout/Navbar';
 import Navigation from '@/src/components/layout/Navigation';
-import { Army } from '@/src/lib/army';
-import { capitalize, kebabCaseToTitleCase } from '@/src/lib/string.utils';
+import ArmiesList from '@/src/components/rules/ArmiesList';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,44 +9,12 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const armies = Object.values(Army);
-
   return (
     <>
       <Navbar title="Armies" hideBackButton />
       <main className="p-2 pb-16">
         <PwaInstallAlert className="mb-4" />
-        <ul className="list gap-2">
-          {armies.map((army) => (
-            <li key={army}>
-              <ListItemLink href={`/${army}`}>
-                {capitalize(kebabCaseToTitleCase(army))}
-              </ListItemLink>
-            </li>
-          ))}
-          <li>
-            <ListItemLink href="#">
-              Adeptus Custodes
-              <span className="badge badge-soft badge-info ml-2">Coming Soon</span>
-            </ListItemLink>
-          </li>
-          <li>
-            <ListItemLink href="#">
-              Adeptus Mechanicus
-              <span className="badge badge-soft badge-info ml-2">Coming Soon</span>
-            </ListItemLink>
-          </li>
-          <li>
-            <ListItemLink href="#">
-              Space Marines<span className="badge badge-soft badge-info ml-2">Coming Soon</span>
-            </ListItemLink>
-          </li>
-          <li>
-            <ListItemLink href="#">
-              Tyranids<span className="badge badge-soft badge-info ml-2">Coming Soon</span>
-            </ListItemLink>
-          </li>
-        </ul>
+        <ArmiesList />
       </main>
       <Navigation activeTab="references" />
     </>
