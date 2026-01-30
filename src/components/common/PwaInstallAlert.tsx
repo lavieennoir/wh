@@ -6,15 +6,7 @@ export function PwaInstallAlert({
   className,
   ...props
 }: Omit<React.HTMLAttributes<HTMLDivElement>, 'role'>) {
-  const {
-    canInstall,
-    onInstall,
-    onPersist,
-    isInstalled,
-    isLoading,
-    isPersistenceEnabled,
-    canEnablePersistence,
-  } = usePwa();
+  const { canInstall, onInstall, isInstalled, isLoading, isPersistenceEnabled } = usePwa();
 
   if (isLoading) return null;
 
@@ -69,21 +61,10 @@ export function PwaInstallAlert({
             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
           />
         </svg>
-        {canEnablePersistence ? (
-          <>
-            <span>
-              We are not able to ensure data persistence on this device. Please enable persistence.
-            </span>
-            <button onClick={onPersist} className="btn btn-warning w-full md:w-auto md:ml-auto">
-              Enable Persistence
-            </button>
-          </>
-        ) : (
-          <span>
-            We are not able to ensure data persistence on this device. Please enable persistence in
-            your browser settings or reinstall the app.
-          </span>
-        )}
+        <span>
+          We are not able to ensure data persistence on this device. Please enable persistence in
+          your browser settings or reinstall the app.
+        </span>
       </div>
     );
   }

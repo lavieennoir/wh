@@ -10,7 +10,6 @@ export const usePwa = () => {
   const [canInstall, setCanInstall] = useState(false);
   const [isInstalled, setIsInstalled] = useState(false);
   const [isPersistenceEnabled, setIsPersistenceEnabled] = useState(false);
-  const [canEnablePersistence, setCanEnablePersistence] = useState(false);
 
   useEffect(() => {
     const handleChange = () => {
@@ -22,17 +21,15 @@ export const usePwa = () => {
       setCanInstall(true);
     };
 
-    setCanEnablePersistence(typeof window?.navigator?.storage?.persist === 'function');
     handleChange();
 
-    window.navigator?.storage
-      ?.persist()
-      .then((persisted) => {
-        setIsPersistenceEnabled(persisted);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    window.navigator?.storage?.persist().then((persisted) => {
+      setIsPersistenceEnabled(persisted);
+    });
+    setTimeout(() => {
+      // wait for handleBeforeInstallPrompt. We are not sure if it will be called, so just wait a bit.
+      setIsLoading(false);
+    }, 100);
 
     window.matchMedia('(display-mode: standalone)').addEventListener('change', handleChange);
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
@@ -46,17 +43,11 @@ export const usePwa = () => {
     installPromptRef.current?.prompt?.();
   };
 
-  const onPersist = () => {
-    window.navigator?.storage?.persist?.();
-  };
-
   return {
     onInstall,
-    onPersist,
     canInstall,
     isInstalled,
     isLoading,
     isPersistenceEnabled,
-    canEnablePersistence,
   };
 };
