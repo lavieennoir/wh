@@ -3,7 +3,10 @@ import { usePwa } from '@/src/hooks/usePwa';
 import clsx from 'clsx';
 import EnterAnimation, { EnterAnimationProps } from './animation/EnterAnimation';
 
-export function PwaInstallAlert({ className, ...props }: Omit<EnterAnimationProps, 'role'>) {
+export function PwaInstallAlert({
+  className,
+  ...props
+}: Omit<EnterAnimationProps, 'role' | 'children'>) {
   const { canInstall, onInstall, isInstalled, isLoading, isPersistenceEnabled } = usePwa();
 
   if (isLoading) return null;
